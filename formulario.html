@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patitas felices | Formulario de adopción</title>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="./assets/css/base.css" />
+  <link rel="stylesheet" href="./assets/css/formulario.css" />
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__contenido">
+      <div class="header__barra header__contenedor">
+        <a href="./index.html">
+          <img class="header__logo" src="./assets/img/logo.png" alt="logo Patitas Felices" />
+        </a>
+
+        <img class="header__icono-nav" src="./assets/img/hamburguesa.svg" alt="navegacion icono" />
+
+        <nav class="navegacion">
+          <div class="navegacion__flex">
+            <a class="btn__text" href="./mascotas.html">En adopcion</a>
+            <a class="btn__text" href="./requisitos.html">Requisitos para adoptar</a>
+            <a class="btn__text activo" href="./formulario.html">Formulario de adopción</a>
+            <a class="btn__primary" href="./donar.html">Donar</a>
+          </div>
+        </nav>
+      </div>
+      <!--Fin header-barra-->
+    </div>
+  </header>
+  <main>
+    <div class="page">
+      <h2 class="page__title">Formulario de adopción</h2>
+      <p class="page__paragraph">
+        Este formulario es el primer paso para unirte a nuestra gran familia
+        de adopción. La adopción de tu nuevo compañero estará basada en los
+        datos que nos proporciones, una amena charla para conocerte mejor y,
+        por supuesto, la disponibilidad del perrito que elijas. ¡Estamos
+        emocionados de ayudarte en este maravilloso viaje!
+      </p>
+
+      <section class="section__form">
+        <form action="" method="post" enctype="multipart/form-data" class="form">
+          <fieldset class="form__container">
+            <h3 class="form__title">Tus datos de contacto</h3>
+            <label for="nombre" class="form__label--float">Nombre y Apellido *</label>
+            <input type="text" name="nombre" id="nombre" class="form__input" />
+            <label for="telefono" class="form__label--float">Teléfono de contacto
+            </label>
+            <input type="tel" name="telefono" id="telefono" class="form__input" maxlength="10" />
+            <label for="domicilio" class="form__label--float">Domicilio
+            </label>
+            <input type="text" name="domicilio" id="domicilio" class="form__input" />
+            <label for="email" class="form__label--float">Correo electrónico *</label>
+            <input type="email" name="email" id="email" class="form__input" />
+          </fieldset>
+          <fieldset class="form__container">
+            <h3 class="form__title">Validemos tu identidad</h3>
+            <p>
+              Para poder validar que sos quien decís ser, necesitamos que
+              valides tu identidad enviando una foto tuya mostrando tu DNI en
+              mano.
+            </p>
+            <input type="file" name="foto" id="foto" accept="image/png, image/jpg" class="form__input--file" />
+          </fieldset>
+          <fieldset class="form__container">
+            <h3 class="form__title">¿Dónde vivirá el perrito?</h3>
+            <p class="form__title-ask">¿En qué tipo de vivienda habitás? *</p>
+            <label>
+              <input type="radio" name="vivienda" value="Casa" />
+              <span>Casa</span>
+            </label>
+            <label>
+              <input type="radio" name="vivienda" value="Departamento" />
+              <span>Departamento</span>
+            </label>
+          </fieldset>
+          <fieldset class="form__container">
+            <h3 class="form__title">¿Cómo vivirá el perrito?</h3>
+            <p class="form__title-ask">
+              ¿Tenés otras mascotas? ¿Están castradas?
+            </p>
+            <div class="form__container_select">
+              <select name="otras_mascotas" id="otras_mascotas" class="form__select">
+                <option value="1">No tengo otras mascotas</option>
+                <option value="2">Sí y están todos castrados</option>
+                <option value="3">Algunos sí y otros no</option>
+                <option value="4">Sí, pero no están castrados</option>
+              </select>
+              <i></i>
+            </div>
+          </fieldset>
+          <fieldset class="form__container">
+            <h3 class="form__title">¡Ya casi terminamos!</h3>
+            <label for="nombre_mascota" class="form__label--float">
+              Nombre de la mascota que querés adoptar
+            </label>
+            <input type="text" name="nombre_mascota" id="nombre_mascota" class="form__input" />
+            <p class="form__title-ask">
+              Por favor, respondé las siguientes preguntas
+            </p>
+            <ul class="form__list">
+              <li>¿Tuviste otros animales anteriormente?</li>
+              <li>¿Qué harías en caso de mudanza?</li>
+              <li>
+                ¿Con quién se quedaría el animal si te vas de vacaciones?
+              </li>
+              <li>¿Tenés un veterinario de confianza?</li>
+            </ul>
+            <label for="respuestas" class="form__label--float">Respuestas</label>
+            <textarea name="repuestas" id="respuestas" rows="10" class="form__textarea"></textarea>
+          </fieldset>
+          <div class="error" id="errorContainer">
+            <p class="errorNombre"></p>
+            <p class="errorEmail"></p>
+          </div>
+          <div class="enviado" id="enviado"></div>
+          <input type="submit" value="Enviar el formulario" class="btn__primary" />
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__contenedor footer__grid">
+      <div class="footer__box">
+        <img src="./assets/img/pet-house.png" alt="Cucha de perrito" />
+        <h3 class="footer__titulo">Abrimos el refugio</h3>
+        <p>De Lunes a Viernes: 09am a 20pm.</p>
+        <p>Sábados: 09am a 13pm.</p>
+        <p>Domingos: cerrados.</p>
+      </div>
+      <div class="footer__box">
+        <img src="./assets/img/dog-training.png" alt="Perrito feliz" />
+        <h3 class="footer__titulo">Datos de contacto</h3>
+        <p>Santiago 781, Rosario, Santa Fe</p>
+        <a href="tel:+543541437460" class="footer__enlace">
+          +54 (3541) 437460
+        </a>
+        <a href="mailto:info@patitasfelices" class="footer__enlace">
+          info@patitasfelices
+        </a>
+      </div>
+    </div>
+    <div class="footer__barra">
+      <div class="footer__flex">
+        <a href="./index.html" class="footer__logo">
+          <img src="./assets/img/logo-footer.svg" alt="Logo Patitas Felices" />
+        </a>
+        <div class="footer__redes">
+          <a href="#">
+            <img src="./assets/img/instagram.svg" alt="Icono instagram" />
+          </a>
+          <a href="#">
+            <img src="./assets/img/facebook.svg" alt="Icono facebook" />
+          </a>
+          <a href="#">
+            <img src="./assets/img/whatsapp.svg" alt="Icono whatsapp" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+  <!-- <script src="./assets/js/formulario.js"></script> -->
+  <script src="./assets/js/menu-mobile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/estilos-dashboard.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <title>Panel de Administración</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__contenedor">
+            <div class="header__contenido">
+                <h2>Dashboard</h2>
+                <button class="btn__primary btn__primary--dark btn__icono">
+                    <img src="../assets/img/iconos/ico-cerrar.svg" alt="icono de cerrar sesion"> Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="panel">
+        <div class="panel__contenedor">
+            <img class="barra-lateral__icono-nav" src="../assets/img/hamburguesa.svg" alt="menu hamburguesa">
+            <!-- Barra lateral -->
+            <div class="barra-lateral">
+                <h3 class="barra-lateral__titulo">Administración</h3> <!-- Rol -->
+                <nav class="barra-lateral__menu">
+                    <div class="menu">
+                        <a class="menu__item activo" href="./dashboard-mascotas.html">Mascotas</a>
+                        <a class="menu__item" href="./dashboar-adoptantes.html">Adoptantes</a>
+                        <a class="menu__item" href="./dashboard-postulaciones.html">Postulaciones</a>
+                        <a class="menu__item" href="./dashboard-adopciones.html">Adopciones</a>
+                        <a class="menu__item" href="./dashboard-donaciones.html">Donaciones</a>
+                    </div>
+                </nav>
+                <!-- <a href="#">Registrar usuario</a> -->
+            </div>
+            <!-- Contenido -->
+            <section class="contenido">
+                <div class="contenido__contenedor">
+                    <div class="contenido__header">
+                        <h3 class="contenido__titulo">Agregar perrito</h3>
+                    </div>
+
+                    <div class="seccion-formulario__contenedor">
+                        <h4>Llena todos los campos</h4>
+                        <form class="formulario" id="formulario_mascota" encType="multipart/form-data">
+                            <div class="formulario__item">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombre">
+                            </div>
+                            <div class="formulario__item">
+                                <label for="genero">Genero</label>
+                                <input type="text" name="genero" id="genero">
+                            </div>
+                            <div class="formulario__item">
+                                <label for="edad">Edad</label>
+                                <input type="text" name="edad" id="edad">
+                            </div>
+
+                            <div class="formulario__item">
+                                <label for="condicion-medica">Condición médica</label>
+                                <textarea name="condicion_medica" id="condicion-medica"></textarea>
+                            </div>
+
+                            <div class="formulario__item">
+                                <label for="tamaño">Tamaño</label>
+                                <select name="tamaño" id="tamaño" class="formulario__select">
+                                    <option value="pequeño" selected>Pequeño</option>
+                                    <option value="mediano" default>Mediano</option>
+                                    <option value="grande" default>Grande</option>
+                                </select>
+                            </div>
+                            
+                            <div class="formulario__item">
+                                <label for="estado-adopcion">Estado de adopcion</label>
+                                <select name="estado_adopcion" id="estado-adopcion" class="formulario__select">
+                                    <option value="disponible" selected>Disponible</option>
+                                    <option value="pendiente" default>Pendiente</option>
+                                    <option value="adoptado" default>Adoptado</option>
+                                </select>
+                            </div>
+
+                            <div class="formulario__item">
+                                <label for="imagen">Seleccionar imagen:</label>
+                                <input type="file" id="imagen" name="imagen" accept="image/*">
+                            </div>
+
+                            <div class="formulario__botones">
+                                <button class="btn__light">Enviar</button>
+                                <button class="btn__light">Resetear</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__barra">
+            <div class="footer__flex footer__flex--center">
+                <a href="../index.html" class="footer__logo">
+                    <img src="../assets/img/logo-footer.svg" alt="Logo Patitas Felices">
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../assets/js/dashboard/menu-panel.js"></script>
+    <script src="../assets/js/dashboard/gestion-mascotas.js"></script>
+</body>
+</html>

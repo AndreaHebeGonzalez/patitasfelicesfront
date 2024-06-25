@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/estilos-dashboard.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <title>Panel de Administración</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__contenedor">
+            <div class="header__contenido">
+                <h2>Dashboard</h2>
+                <button class="btn__primary btn__primary--dark btn__icono">
+                    <img src="../assets/img/iconos/ico-cerrar.svg" alt="icono de cerrar sesion"> Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="panel">
+        <div class="panel__contenedor">
+            <img class="barra-lateral__icono-nav" src="../assets/img/hamburguesa.svg" alt="menu hamburguesa">
+            <!-- Barra lateral -->
+            <div class="barra-lateral">
+                <h3 class="barra-lateral__titulo">Administración</h3> <!-- Rol -->
+                <nav class="barra-lateral__menu">
+                    <div class="menu">
+                        <a class="menu__item activo" href="./dashboard-mascotas.html">Mascotas</a>
+                        <a class="menu__item" href="./dashboar-adoptantes.html">Adoptantes</a>
+                        <a class="menu__item" href="./dashboard-postulaciones.html">Postulaciones</a>
+                        <a class="menu__item" href="./dashboard-adopciones.html">Adopciones</a>
+                        <a class="menu__item" href="./dashboard-donaciones.html">Donaciones</a>
+                    </div>
+                </nav>
+                <!-- <a href="#">Registrar usuario</a> -->
+            </div>
+            <!-- Contenido -->
+            <section class="contenido">
+                <div class="contenido__contenedor">
+                    <div class="contenido__header">
+                        <h3 class="contenido__titulo">Mascotas</h3>
+                        <div class="contenido__filtro">
+                            <button class="filtro__btn btn__icono">
+                                <img src="../assets/img/iconos/ico-filtrar.svg" alt="icono de agregar"> Filtrar
+                            </button>
+                                <ul class="filtro__opciones">
+                                    <li class="filtro__opcion filtro__opcion--entrada">
+                                        <input type="text" name="opcionFiltro" id="fNombre">
+                                        <label for="for="fNombre">Por nombre</label>                                        
+                                    </li>
+                                    <li class="filtro__opcion">
+                                        <input type="radio" name="opcionFiltro" id="ftamaño" value="ftamaño">
+                                        <label for="ftamaño">Por tamaño</label>
+                                    </li>
+                                    <li class="filtro__opcion">
+                                        <input type="radio" name="opcionFiltro" id="fEstadoAdopcion" value="fEstadoAdopcion">
+                                        <label for="fEstadoAdopcion">Por Estado de adopcion</label>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+
+                    <a href="./agregar-mascota.html" class="btn__secundary btn__secundary--verde btn__icono">
+                        <img src="../assets/img/iconos/ico-agregar.svg" alt="icono de agregar"> Agregar perrito
+                    </a>
+                
+                    <div class="contenido-dinamico">
+                        <div class="mascota">
+                            <div class="mascota__card">
+                                <figure class="card__imagen">
+                                    <img src="../assets/img/img-mascotas/perrito-1.jpg" alt="Imagen de mascota">
+                                </figure>
+                                <table class="mascota__informacion">
+                                    <tr class="mascota__fila">
+                                        <td class="mascota__campo"><strong>Nombre:</strong></td>
+                                        <td class="mascota__valor">Firulais</td>
+                                    </tr>
+                                    <tr class="mascota__fila">
+                                        <td class="mascota__campo"><strong>Género</strong></td>
+                                        <td class="mascota__valor">Macho</td>
+                                    </tr>
+                                    <tr class="mascota__fila">
+                                        <td class="mascota__campo"><strong>Edad:</strong></td>
+                                        <td class="mascota__valor">3 años</td>
+                                    </tr>
+                                    <tr class="mascota__fila">
+                                        <td class="mascota__campo"><strong>Condición Médica:</strong></td>
+                                        <td class="mascota__valor">Desparacitado, vacunado, cirugia de cadera. Toma medicacion para el corazon.</td>
+                                    </tr>
+                                    <tr class="mascota__fila">
+                                        <td class="mascota__campo"><strong>Tamaño:</strong></td>
+                                        <td class="mascota__valor">Mediano</td>
+                                    </tr>
+                                    <tr class="mascota__fila">
+                                        <td class="mascota__campo"><strong>Estado de adopción:</strong></td>
+                                        <td class="mascota__valor">Disponible</td>
+                                    </tr>
+                                    <tr class="mascota__fila">
+                                        <td class="mascota__campo"><strong>Fecha de ingreso:</strong></td>
+                                        <td class="mascota__valor">2024/05/05</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="mascota__acciones">
+                                <a href="./editar-mascota.html" class="btn__secundary btn__icono">
+                                    <img src="../assets/img/iconos/ico-editar.svg" alt="icono de editar"> Editar
+                                </a>
+                                <button class="btn__secundary btn__secundary--dark btn__icono">
+                                    <img src="../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
+                                </button>
+                                <button class="btn__secundary btn__secundary--azul">Postulantes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__barra">
+            <div class="footer__flex footer__flex--center">
+                <a href="./index.html" class="footer__logo">
+                    <img src="../assets/img/logo-footer.svg" alt="Logo Patitas Felices">
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../assets/js/dashboard/menu-panel.js"></script>
+    <script src="../assets/js/dashboard/gestion-mascotas.js"></script>
+</body>
+</html>
