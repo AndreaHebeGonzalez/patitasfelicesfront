@@ -1,0 +1,77 @@
+/*================= Estilos Ventana Modal =================*/
+
+.ventana-modal { /*Me va a ocupar el 100% de la página*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000006c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.ventana-modal__box {
+    width: 90%;
+    max-width: 55rem;
+    min-width: 20rem;
+    padding: 4rem 0;
+    height: auto;
+    background-color: var(--blanco);
+    border-radius: 1rem;
+    position: relative;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ventana-modal__box .ventana-modal__cerrar {
+    background-image: url(img/icono-cerrar.png);
+    background-size: cover;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -14%;
+    right: -4%;
+    cursor: pointer;
+} 
+
+.ventana-modal__box::after {
+    content: '';
+    position: absolute;
+    background-color: var(--primario-transparencia);
+    border: 2px solid white;
+    border-radius: 1rem;
+    top: -0.9rem;
+    left: -0.9rem;
+    right: -0.9rem;
+    bottom: -0.9rem;
+    z-index: -1; /*Mando hacia atras pseudoelemento*/
+}
+
+.ventana-modal__contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.ventana-modal span {
+    line-height: 1.5;
+    text-align: center;
+    font-size: 2.4rem;
+    color: var(--negro);
+    font-family: var(--fuente-secundaria);
+}
+
+.mostrar-ventana-modal {
+    opacity: 1;
+    pointer-events: unset;
+}

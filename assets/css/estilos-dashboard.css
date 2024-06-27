@@ -460,3 +460,12 @@ h3 {
 .tabla tr:not(:last-child) td {
     border-bottom: 1px solid var(--border-input);
 }
+
+/* Spinner */
+.d-none {
+    display: none; /* El spinner tiene esta clase, cuando inicia el proceso de borrado la saco para que el spinner aparezca */
+}
+
+.spinner {
+    margin-top: 1rem;
+}

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/estilos-dashboard.css">
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/estilos-dashboard.css">
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
     <title>Panel de Administración</title>
 </head>
 <body>
@@ -14,24 +14,24 @@
             <div class="header__contenido">
                 <h2>Dashboard</h2>
                 <button class="btn__primary btn__primary--dark btn__icono">
-                    <img src="../assets/img/iconos/ico-cerrar.svg" alt="icono de cerrar sesion"> Cerrar sesión
+                    <img src="../../assets/img/iconos/ico-cerrar.svg" alt="icono de cerrar sesion"> Cerrar sesión
                 </button>
             </div>
         </div>
     </header>
     <main class="panel">
         <div class="panel__contenedor">
-            <img class="barra-lateral__icono-nav" src="../assets/img/hamburguesa.svg" alt="menu hamburguesa">
+            <img class="barra-lateral__icono-nav" src="../../assets/img/hamburguesa.svg" alt="menu hamburguesa">
             <!-- Barra lateral -->
             <div class="barra-lateral">
                 <h3 class="barra-lateral__titulo">Administración</h3> <!-- Rol -->
                 <nav class="barra-lateral__menu">
                     <div class="menu">
-                        <a class="menu__item activo" href="./dashboard-mascotas.html">Mascotas</a>
-                        <a class="menu__item" href="./dashboar-adoptantes.html">Adoptantes</a>
-                        <a class="menu__item" href="./dashboard-postulaciones.html">Postulaciones</a>
-                        <a class="menu__item" href="./dashboard-adopciones.html">Adopciones</a>
-                        <a class="menu__item" href="./dashboard-donaciones.html">Donaciones</a>
+                        <a class="menu__item" href="./gestion-mascotas.html">Mascotas</a>
+                        <a class="menu__item" href="../gestion-adoptantes/dashboar-adoptantes.html">Adoptantes</a>
+                        <a class="menu__item" href="../gestion-adoptantes/dashboard-postulaciones.html">Postulaciones</a>
+                        <a class="menu__item" href="../gestion-adoptantes/dashboard-adopciones.html">Adopciones</a>
+                        <a class="menu__item" href="../gestion-donaciones/dashboard-donaciones.html">Donaciones</a>
                     </div>
                 </nav>
                 <!-- <a href="#">Registrar usuario</a> -->
@@ -40,10 +40,11 @@
             <section class="contenido">
                 <div class="contenido__contenedor">
                     <div class="contenido__header">
-                        <h3 class="contenido__titulo">Editar perrito</h3>
+                        <h3 class="contenido__titulo">Agregar perrito</h3>
                     </div>
 
                     <div class="seccion-formulario__contenedor">
+                        <h4>Llena todos los campos</h4>
                         <form class="formulario" id="formulario_mascota" encType="multipart/form-data">
                             <div class="formulario__item">
                                 <label for="nombre">Nombre</label>
@@ -101,14 +102,14 @@
     <footer class="footer">
         <div class="footer__barra">
             <div class="footer__flex footer__flex--center">
-                <a href="./index.html" class="footer__logo">
-                    <img src="../assets/img/logo-footer.svg" alt="Logo Patitas Felices">
+                <a href="../../index.html" class="footer__logo">
+                    <img src="../../assets/img/logo-footer.svg" alt="Logo Patitas Felices">
                 </a>
             </div>
         </div>
     </footer>
     
-    <script src="../assets/js/dashboard/menu-panel.js"></script>
-    <script src="../assets/js/dashboard/gestion-mascotas.js"></script>
+    <script src="../../assets/js/dashboard/menu-panel.js"></script>
+    <script src="../../assets/js/dashboard/gestion-mascotas.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 :root {
   --primario: #d67d31;
   --primario-80: #d98741;
+  --primario-transparencia: #d67e31dc;
   --primario-10: #fcf5ef;
   --secundario: #31241c;
   --secundario-claro: #574133;
@@ -143,7 +144,7 @@ ol {
 }
 
 .navegacion {
-  z-index: 10;
+  z-index: 20;
   background-color: var(--blanco);
   flex-basis: 100%;
   visibility: hidden;

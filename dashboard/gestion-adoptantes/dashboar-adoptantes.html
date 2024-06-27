@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/estilos-dashboard.css">
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/estilos-dashboard.css">
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
     <title>Panel de Administración</title>
 </head>
 <body>
@@ -14,24 +14,24 @@
             <div class="header__contenido">
                 <h2>Dashboard</h2>
                 <button class="btn__primary btn__primary--dark btn__icono">
-                    <img src="../assets/img/iconos/ico-cerrar.svg" alt="icono de cerrar sesion"> Cerrar sesión
+                    <img src="../../assets/img/iconos/ico-cerrar.svg" alt="icono de cerrar sesion"> Cerrar sesión
                 </button>
             </div>
         </div>
     </header>
     <main class="panel">
         <div class="panel__contenedor">
-            <img class="barra-lateral__icono-nav" src="../assets/img/hamburguesa.svg" alt="menu hamburguesa">
+            <img class="barra-lateral__icono-nav" src="../../assets/img/hamburguesa.svg" alt="menu hamburguesa">
             <!-- Barra lateral -->
             <div class="barra-lateral">
                 <h3 class="barra-lateral__titulo">Administración</h3> <!-- Rol -->
                 <nav class="barra-lateral__menu">
                     <div class="menu">
-                        <a class="menu__item activo" href="./dashboard-mascotas.html">Mascotas</a>
+                        <a class="menu__item activo" href="../gestion-mascotas/gestion-mascotas.html">Mascotas</a>
                         <a class="menu__item" href="./dashboar-adoptantes.html">Adoptantes</a>
                         <a class="menu__item" href="./dashboard-postulaciones.html">Postulaciones</a>
                         <a class="menu__item" href="./dashboard-adopciones.html">Adopciones</a>
-                        <a class="menu__item" href="./dashboard-donaciones.html">Donaciones</a>
+                        <a class="menu__item" href="../gestion-donaciones/dashboard-donaciones.html">Donaciones</a>
                     </div>
                 </nav>
                 <!-- <a href="#">Registrar usuario</a> -->
@@ -40,19 +40,19 @@
             <section class="contenido">
                 <div class="contenido__contenedor">
                     <div class="contenido__header">
-                        <h3 class="contenido__titulo">Donaciones</h3>
+                        <h3 class="contenido__titulo">Adoptantes</h3>
                         <div class="contenido__filtro">
                             <button class="filtro__btn btn__icono">
-                                <img src="../assets/img/iconos/ico-filtrar.svg" alt="icono de agregar"> Filtrar
+                                <img src="../../assets/img/iconos/ico-filtrar.svg" alt="icono de agregar"> Filtrar
                             </button>
                                 <ul class="filtro__opciones">
                                     <li class="filtro__opcion filtro__opcion--entrada">
                                         <input type="text" name="opcionFiltro" id="fNombre">
-                                        <label for="for="fNombre">Por email</label>                                        
+                                        <label for="for="fNombre">Por nombre</label>                                        
                                     </li>
                                     <li class="filtro__opcion">
                                         <input type="radio" name="opcionFiltro" id="ftamaño" value="ftamaño">
-                                        <label for="ftamaño">Por monto</label>
+                                        <label for="ftamaño">Por tamaño</label>
                                     </li>
                                     <li class="filtro__opcion">
                                         <input type="radio" name="opcionFiltro" id="fEstadoAdopcion" value="fEstadoAdopcion">
@@ -63,7 +63,7 @@
                     </div>
 
                     <button class="btn__secundary btn__secundary--verde btn__icono">
-                        <img src="../assets/img/iconos/ico-agregar.svg" alt="icono de agregar"> Agregar donación
+                        <img src="../../assets/img/iconos/ico-agregar.svg" alt="icono de agregar"> Agregar postulante
                     </button>
                 
                     <div class="contenido-dinamico">
@@ -71,10 +71,14 @@
                             <table class="tabla">
                                 <thead>
                                     <tr>
-                                        <th>Nombre</th>
+                                        <th>Nombre y apellido</th>
+                                        <th>Teléfono</th>
                                         <th>Email</th>
-                                        <th>Fecha</th>
-                                        <th>Monto</th>
+                                        <th>DNI</th>
+                                        <th>Domicilio</th>
+                                        <th>Vivienda</th>
+                                        <th>Preguntas</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -83,8 +87,6 @@
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
-                                    </tr>
-                                    <tr>
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
@@ -95,8 +97,46 @@
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
                                     </tr>
                                     <tr>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
+                                        <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
                                         <td>Lorem imsk.</td>
@@ -122,13 +162,14 @@
     <footer class="footer">
         <div class="footer__barra">
             <div class="footer__flex footer__flex--center">
-                <a href="../index.html" class="footer__logo">
-                    <img src="../assets/img/logo-footer.svg" alt="Logo Patitas Felices">
+                <a href="../../index.html" class="footer__logo">
+                    <img src="../../assets/img/logo-footer.svg" alt="Logo Patitas Felices">
                 </a>
             </div>
         </div>
     </footer>
     
-    <script src="../assets/js/dashboard/menu-panel.js"></script>
+    <script src="../../assets/js/dashboard/menu-panel.js"></script>
+    <script src="../../assets/js/dashboard/menu-filtrar.js"></script>
 </body>
 </html>
