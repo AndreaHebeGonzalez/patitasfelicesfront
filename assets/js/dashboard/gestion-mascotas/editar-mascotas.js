@@ -1,69 +1,72 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const perritoActualizado = {
-        nombre: '',
-        genero: '',
-        edad: '',
-        condicion_medica: '',
-        tamano: '',
-        estado_adopcion: '',
-        url_img: '',
-    };
+//Definicion de variables globales y funciones
 
-    // Obtener el ID del perrito desde la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const perritoId = urlParams.get('id');
+const perritoActualizado = {
+    nombre: '',
+    genero: '',
+    edad: '',
+    condicion_medica: '',
+    tamano: '',
+    estado_adopcion: '',
+    url_img: '',
+};
 
-    // Obetener formualario 
-    const formulario = document.querySelector('#formulario_mascota');
-    const btnSubmit = document.querySelector('#formulario_mascota button[type="submit"]');
-    const btnReset = document.querySelector('#formulario_mascota button[type="reset"]');
 
-    /* Ventana modal aparece cuando se borra un perrito */
+// Obtener el ID del perrito desde la URL
+const urlParams = new URLSearchParams(window.location.search);
+const perritoId = urlParams.get('id');
 
-    function mostrarVentanaModal() {
-        const ventanaModal = document.querySelector(".ventana-modal");
-        ventanaModal.classList.add('mostrar-ventana-modal'); /* Muestro ventana modal */
+// Obetener formualario 
+const formulario = document.querySelector('#formulario_mascota');
+const btnSubmit = document.querySelector('#formulario_mascota button[type="submit"]');
+const btnReset = document.querySelector('#formulario_mascota button[type="reset"]');
+
+ /* Ventana modal aparece cuando se borra un perrito */
+
+function mostrarVentanaModal() {
+    const ventanaModal = document.querySelector(".ventana-modal");
+    ventanaModal.classList.add('mostrar-ventana-modal'); /* Muestro ventana modal */
+    setTimeout(() => {
+        ventanaModal.classList.remove('mostrar-ventana-modal'); /* Saco ventana modal despues de 4 segundos */
         setTimeout(() => {
-            ventanaModal.classList.remove('mostrar-ventana-modal'); /* Saco ventana modal despues de 4 segundos */
-            setTimeout(() => {
-                location.reload(); // Recarga la página
-            }, 500); // Espera 500ms para asegurarse de que el modal esté completamente cerrado antes de recargar
-        }, 3000);
-    };
+            location.reload(); // Recarga la página
+        }, 500); // Espera 500ms para asegurarse de que el modal esté completamente cerrado antes de recargar
+    }, 3000);
+};
 
-    //Solicito la informacion del perrito por su id guardada en la base de datos
+//Solicito la informacion del perrito por su id guardada en la base de datos
 
-    async function obtenerPerrito(id) {
-        try {
-            const respuesta = await fetch(`http://localhost:3000/perritos/${id}`);
-            if(!respuesta.ok) {
-                console.log('Error al solicitar perrito por su id, codigo de estado: ', respuesta.status);
-                return;
-            };
-            const data = await respuesta.json();
-            return data;
-        } catch(error) {
-            console.log('Error', error);
+async function obtenerPerrito(id) {
+    try {
+        const respuesta = await fetch(`http://localhost:3000/perritos/${id}`);
+        if(!respuesta.ok) {
+            console.log('Error al solicitar perrito por su id, codigo de estado: ', respuesta.status);
+            return;
         };
+        const data = await respuesta.json();
+        return data;
+    } catch(error) {
+        console.log('Error', error);
     };
+};
 
-    
-    async function agregarValores() {
-        perritoActual = await obtenerPerrito(perritoId);
-        console.log(perritoActual)
-        if(perritoActual) {
-            for(const key in perritoActual) {
-                const input = formulario.querySelector(`[name="${key}"]`);
-                if(input) {
-                    if(input.tagName != 'SELECT' && input.type != 'file') {
-                        input.value = perritoActual[key].charAt(0).toUpperCase() + perritoActual[key].slice(1);
-                    } else if (input.type != 'file') {
-                        input.value = perritoActual[key];
-                    };
+async function agregarValores() {
+    perritoActual = await obtenerPerrito(perritoId);
+    console.log(perritoActual)
+    if(perritoActual) {
+        for(const key in perritoActual) {
+            const input = formulario.querySelector(`[name="${key}"]`);
+            if(input) {
+                if(input.tagName != 'SELECT' && input.type != 'file') {
+                    input.value = perritoActual[key].charAt(0).toUpperCase() + perritoActual[key].slice(1);
+                } else if (input.type != 'file') {
+                    input.value = perritoActual[key];
                 };
             };
         };
     };
+};
+
+document.addEventListener('DOMContentLoaded', () => {
 
     agregarValores();
 
