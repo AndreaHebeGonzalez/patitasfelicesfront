@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/base.css">
     <link rel="stylesheet" href="../../assets/css/estilos-dashboard.css">
+
+    <!-- Ventana Modal -->
     <link rel="stylesheet" href="../../assets/css/vantana-modal.css">
-    <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
 
     <!-- estilos para spinner -->
     <link rel="stylesheet" href="../../assets/css/spinner.css">
+
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
 
     <title>Panel de Administración</title>
 </head>
@@ -29,8 +32,6 @@
 
     <section class="ventana-modal">
         <div class="ventana-modal__box">
-            <!-- Icono de cierre de ventana modal -->
-            <div class="ventana-modal__cerrar"></div>
             <div class="ventana-modal__contenido">
                 <span class="titulo-ventana-modal">Perrito agregado con éxito!</span>
                 <div id="animacion-exito" style="width: 65px; height: 65px;"></div>
@@ -112,7 +113,7 @@
 
                             <div class="formulario__botones">
                                 <button type="submit" class="btn__light" id="btn-enviar">Enviar</button>
-                                <button type="reset" class="btn__light">Resetear</button>
+                                <button type="reset" class="btn__light" disabled>Resetear</button>
                             </div>
                             
                         </form>

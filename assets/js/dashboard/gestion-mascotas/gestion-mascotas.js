@@ -19,85 +19,93 @@ async function solicitarPerritos() {
 async function renderizarCard() {
     try {
         const perritosLista = await solicitarPerritos(); /* Esto es un array de objetos, cada objeto es un perrito */
-        //! Verificar que perrito contenga algo
-        perritosLista.map((perrito) => {
-            let indicefinal = perrito.fecha_ingreso.indexOf('T');
-            let fechaIngreso = perrito.fecha_ingreso.slice(0, indicefinal);
-
-            const urlbase = "http://localhost:3000/";
-            const urlCompleta= `${urlbase}${perrito.url_img}`;
-
-            const mascotaContenedor = document.createElement('div');
-            mascotaContenedor.setAttribute('class', 'mascota');
-            mascotaContenedor.setAttribute('data-id', `${perrito.id}`); // es común y estandarizado usar atributos personalizados de datos con el prefijo data-, como data-id. 
-
-            const contenidoMascota = 
-                            `<div class="mascota__card">
-                                <figure class="card__imagen">
-                                    <img src=${urlCompleta} alt="Imagen de mascota">
-                                </figure>
-                                <table class="mascota__informacion">
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Nombre:</strong></td>
-                                        <td class="mascota__valor"></td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Género</strong></td>
-                                        <td class="mascota__valor"></td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Edad:</strong></td>
-                                        <td class="mascota__valor"></td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Condición Médica:</strong></td>
-                                        <td class="mascota__valor"></td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Tamaño:</strong></td>
-                                        <td class="mascota__valor"></td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Estado de adopción:</strong></td>
-                                        <td class="mascota__valor"></td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Fecha de ingreso:</strong></td>
-                                        <td class="mascota__valor"></td>
-                                    </tr>
-                                </table>
-                                <div id="spinner" class="spinner d-none">
-                                    <div class="sk-chase">
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
+        //Verificar que perritoLista contenga algo
+        if(perritosLista) {
+            perritosLista.map((perrito) => {
+                let indicefinal = perrito.fecha_ingreso.indexOf('T');
+                let fechaIngreso = perrito.fecha_ingreso.slice(0, indicefinal);
+    
+                const urlbase = "http://localhost:3000/";
+                const urlCompleta= `${urlbase}${perrito.url_img}`;
+    
+                const mascotaContenedor = document.createElement('div');
+                mascotaContenedor.setAttribute('class', 'mascota');
+                mascotaContenedor.setAttribute('data-id', `${perrito.id}`); // es común y estandarizado usar atributos personalizados de datos con el prefijo data-, como data-id. 
+    
+                const contenidoMascota = 
+                                `<div class="mascota__card">
+                                    <figure class="card__imagen">
+                                        <img src=${urlCompleta} alt="Imagen de mascota">
+                                    </figure>
+                                    <table class="mascota__informacion">
+                                        <tr class="mascota__fila">
+                                            <td class="mascota__campo"><strong>Nombre:</strong></td>
+                                            <td class="mascota__valor"></td>
+                                        </tr>
+                                        <tr class="mascota__fila">
+                                            <td class="mascota__campo"><strong>Género</strong></td>
+                                            <td class="mascota__valor"></td>
+                                        </tr>
+                                        <tr class="mascota__fila">
+                                            <td class="mascota__campo"><strong>Edad:</strong></td>
+                                            <td class="mascota__valor"></td>
+                                        </tr>
+                                        <tr class="mascota__fila">
+                                            <td class="mascota__campo"><strong>Condición Médica:</strong></td>
+                                            <td class="mascota__valor"></td>
+                                        </tr>
+                                        <tr class="mascota__fila">
+                                            <td class="mascota__campo"><strong>Tamaño:</strong></td>
+                                            <td class="mascota__valor"></td>
+                                        </tr>
+                                        <tr class="mascota__fila">
+                                            <td class="mascota__campo"><strong>Estado de adopción:</strong></td>
+                                            <td class="mascota__valor"></td>
+                                        </tr>
+                                        <tr class="mascota__fila">
+                                            <td class="mascota__campo"><strong>Fecha de ingreso:</strong></td>
+                                            <td class="mascota__valor"></td>
+                                        </tr>
+                                    </table>
+                                    <div id="spinner" class="spinner d-none">
+                                        <div class="sk-chase">
+                                            <div class="sk-chase-dot"></div>
+                                            <div class="sk-chase-dot"></div>
+                                            <div class="sk-chase-dot"></div>
+                                            <div class="sk-chase-dot"></div>
+                                            <div class="sk-chase-dot"></div>
+                                            <div class="sk-chase-dot"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="mascota__acciones">
-                                <a href="./editar-mascota.html" class="btn__secundary btn__icono">
-                                    <img src="../../assets/img/iconos/ico-editar.svg" alt="icono de editar"> Editar
-                                </a>
-                                <button class="btn__secundary btn__secundary--dark btn__icono btn__borrar">
-                                    <img src="../../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
-                                </button>
-                                <button class="btn__secundary btn__secundary--azul">Postulantes</button>
-                            </div>`;
-            mascotaContenedor.innerHTML = contenidoMascota;
-            contenedorPadre.appendChild(mascotaContenedor);
-            const campos = mascotaContenedor.querySelectorAll('.mascota__valor');
-            campos[0].textContent = perrito.nombre;
-            campos[1].textContent = perrito.genero;
-            campos[2].textContent = perrito.edad;
-            campos[3].textContent = perrito.condicion_medica;
-            campos[4].textContent = perrito.tamaño; 
-            campos[5].textContent = perrito.estado_adopcion;
-            campos[6].textContent = fechaIngreso;
-        });
+                                
+                                <div class="mascota__acciones">
+                                    <a href="./editar-mascota.html" class="btn__secundary btn__icono btn_editar">
+                                        <img src="../../assets/img/iconos/ico-editar.svg" alt="icono de editar"> Editar
+                                    </a>
+                                    <button class="btn__secundary btn__secundary--dark btn__icono btn__borrar">
+                                        <img src="../../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
+                                    </button>
+                                    <button class="btn__secundary btn__secundary--azul">Postulantes</button>
+                                </div>`;
+                mascotaContenedor.innerHTML = contenidoMascota;
+                contenedorPadre.appendChild(mascotaContenedor);
+                const campos = mascotaContenedor.querySelectorAll('.mascota__valor');
+                campos[0].textContent = perrito.nombre;
+                campos[1].textContent = perrito.genero;
+                campos[2].textContent = perrito.edad;
+                campos[3].textContent = perrito.condicion_medica;
+                campos[4].textContent = perrito.tamaño; 
+                campos[5].textContent = perrito.estado_adopcion;
+                campos[6].textContent = fechaIngreso;
+    
+                //Agrego la url del formulario al boton editar y paso el id como parámetro en la url
+                const btnEditar = mascotaContenedor.querySelector('.btn_editar');
+                btnEditar.setAttribute('href', `./editar-mascota.html?id=${perrito.id}` );
+                console.log(btnEditar);
+            });
+        };
+        
     } catch (error) {
         console.error('Error al renderizar las cards de perritos:', error);
     }
@@ -140,6 +148,8 @@ async function eliminarPerrito(id, contenedorMascota) {
     };     
 };
 
+
+
 contenedorPadre.addEventListener('click', async (e) => {
     if(e.target.classList.contains('btn__borrar')) {
         console.log('se hizo clic en el boton borrar');
@@ -153,5 +163,6 @@ contenedorPadre.addEventListener('click', async (e) => {
         }
     };
 });
+
 
 document.addEventListener('DOMContentLoaded', renderizarCard);

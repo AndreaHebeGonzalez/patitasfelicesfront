@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tamano: 'pequeño',
         estado_adopcion: 'disponible',
         url_img: '',
-    }
+    };
 
 
     //Seleccionar los elemetos de la interfaz
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
 
         } catch (error) {
-            console.error('Error al enviar la informacion conchu', error);
+            console.error('Error al enviar la informacion', error);
         }
 
     });
