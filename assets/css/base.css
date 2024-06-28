@@ -28,6 +28,7 @@
 
   --error: #d43f2e;
   --error-light: #fde6e3;
+  --border-error: #b23527;
   --success: #0f8651;
   --success-light: #dafeed;
 
@@ -36,6 +37,7 @@
   --verde-hover: #18b043;
   --azul: #1F1C31;
   --azul-hover: #2b2743;
+  --deshabilitar: #dbdede;
 
   /* fonts ***/
   --fuente-principal: "Montserrat", sans-serif;

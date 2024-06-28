@@ -1,8 +1,7 @@
 
 const contenedorPadre = document.querySelector('.contenido-dinamico');
-console.log(contenedorPadre);
 
-async function mostrarPerritos() {
+async function solicitarPerritos() {
     try {
         const respuesta = await fetch('http://localhost:3000/perritos'); /* Metodo get por defecto */
         if (!respuesta.ok) {
@@ -10,7 +9,6 @@ async function mostrarPerritos() {
             return 
         };
         const data = await respuesta.json();
-        console.log(data);
         return data;
         
     } catch (error) {
@@ -20,12 +18,14 @@ async function mostrarPerritos() {
 
 async function renderizarCard() {
     try {
-        const perritosLista = await mostrarPerritos(); /* Esto es un array de objetos, cada objeto es un perrito */
+        const perritosLista = await solicitarPerritos(); /* Esto es un array de objetos, cada objeto es un perrito */
         //! Verificar que perrito contenga algo
         perritosLista.map((perrito) => {
+            let indicefinal = perrito.fecha_ingreso.indexOf('T');
+            let fechaIngreso = perrito.fecha_ingreso.slice(0, indicefinal);
+
             const urlbase = "http://localhost:3000/";
-            
-            const urlCompleta= `${urlbase}${perrito.img_url}`;
+            const urlCompleta= `${urlbase}${perrito.url_img}`;
 
             const mascotaContenedor = document.createElement('div');
             mascotaContenedor.setAttribute('class', 'mascota');
@@ -66,7 +66,7 @@ async function renderizarCard() {
                                         <td class="mascota__valor"></td>
                                     </tr>
                                 </table>
-                                <div id="spinner" class="spinner">
+                                <div id="spinner" class="spinner d-none">
                                     <div class="sk-chase">
                                         <div class="sk-chase-dot"></div>
                                         <div class="sk-chase-dot"></div>
@@ -80,10 +80,10 @@ async function renderizarCard() {
                             
                             <div class="mascota__acciones">
                                 <a href="./editar-mascota.html" class="btn__secundary btn__icono">
-                                    <img src="../assets/img/iconos/ico-editar.svg" alt="icono de editar"> Editar
+                                    <img src="../../assets/img/iconos/ico-editar.svg" alt="icono de editar"> Editar
                                 </a>
-                                <button class="btn__secundary btn__secundary--dark btn__icono">
-                                    <img src="../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
+                                <button class="btn__secundary btn__secundary--dark btn__icono btn__borrar">
+                                    <img src="../../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
                                 </button>
                                 <button class="btn__secundary btn__secundary--azul">Postulantes</button>
                             </div>`;
@@ -93,10 +93,10 @@ async function renderizarCard() {
             campos[0].textContent = perrito.nombre;
             campos[1].textContent = perrito.genero;
             campos[2].textContent = perrito.edad;
-            campos[3].textContent = perrito.tamaño;
-            campos[4].textContent = perrito.condicion_medica;
+            campos[3].textContent = perrito.condicion_medica;
+            campos[4].textContent = perrito.tamaño; 
             campos[5].textContent = perrito.estado_adopcion;
-            campos[6].textContent = perrito.fecha_ingreso;
+            campos[6].textContent = fechaIngreso;
         });
     } catch (error) {
         console.error('Error al renderizar las cards de perritos:', error);
@@ -154,4 +154,4 @@ contenedorPadre.addEventListener('click', async (e) => {
     };
 });
 
-document.addEventListener('DOMContentLoaded', mostrarPerritos);
+document.addEventListener('DOMContentLoaded', renderizarCard);
