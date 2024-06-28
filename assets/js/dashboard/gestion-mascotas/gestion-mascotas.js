@@ -95,7 +95,7 @@ async function renderizarCard() {
                 campos[1].textContent = perrito.genero;
                 campos[2].textContent = perrito.edad;
                 campos[3].textContent = perrito.condicion_medica;
-                campos[4].textContent = perrito.tamaño; 
+                campos[4].textContent = perrito.tamano; 
                 campos[5].textContent = perrito.estado_adopcion;
                 campos[6].textContent = fechaIngreso;
     
