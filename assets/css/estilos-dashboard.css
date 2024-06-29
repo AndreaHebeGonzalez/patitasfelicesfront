@@ -216,7 +216,7 @@ h3 {
 }
 
 .filtro__opcion--entrada {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 0.5rem;
 }
 
