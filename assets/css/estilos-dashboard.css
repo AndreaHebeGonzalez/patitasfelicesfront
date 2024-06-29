@@ -81,10 +81,6 @@ h3 {
     }
 }
 
-.panel__contenedor {
-    
-}
-
 @media (min-width: 1024px) { 
     .panel__contenedor {
         display: grid;
@@ -220,7 +216,7 @@ h3 {
 }
 
 .filtro__opcion--entrada {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 0.5rem;
 }
 
@@ -273,6 +269,7 @@ h3 {
     gap: 1.5rem;
     padding: 3rem;
     min-width: 28rem;
+    width: 80%;
     flex: 0.8;
 }
 
@@ -301,6 +298,7 @@ h3 {
 
 .mascota__valor {
     color: var(--gris-oscuro);
+    text-transform: capitalize;
 }
 
 /* Botones acciones */
@@ -406,6 +404,10 @@ h3 {
     line-height: 2rem;
 }
 
+.formulario textarea {
+    font-family: var(--fuente-secundaria);
+}
+
 .formulario .btn__primary {
     width: max-content;
     align-self: center;
@@ -422,6 +424,25 @@ h3 {
     display: flex;
     justify-content: center;
     gap: 2rem;
+}
+
+/* Mensaje de error */
+
+.error {
+    border: 1px solid var(--border-error);
+    padding: 0.8rem 1rem;
+    font-size: 1.5rem;
+    color: var(--blanco);
+    background-color: var(--error);
+    border-radius: 0.5rem;
+}
+
+.deshabilitar-btn,
+.deshabilitar-btn:hover {
+    border-color: var(--deshabilitar);
+    color: var(--blanco);
+    background-color: var(--deshabilitar);
+    box-shadow: none;
 }
 
 /* Tablas ======================>*/ 
@@ -462,10 +483,14 @@ h3 {
 }
 
 /* Spinner */
-.d-none {
-    display: none; /* El spinner tiene esta clase, cuando inicia el proceso de borrado la saco para que el spinner aparezca */
-}
+
 
 .spinner {
-    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.d-none {
+    display: none; /* El spinner tiene esta clase, cuando inicia el proceso de borrado la saco para que el spinner aparezca */
 }
