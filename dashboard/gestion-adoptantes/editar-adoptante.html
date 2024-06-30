@@ -116,27 +116,12 @@
                 </div>
 
                 <div class="formulario__item">
-                  <label for="vivienda">Vivienda</label>
-                  <div class="formulario__radio">
-                    <input type="radio" name="casa" value="Casa" />
-                    <label>Casa</label>
-                  </div>
-                  <div class="formulario__radio">
-                    <input type="radio" name="departamento" value="Departamento" />
-                    <label>Departamento</label>
-                  </div>
-                </div>
-
-                <!-- <div class="formulario__item">
-                  <label for="nombre_mascota">
-                    Nombre del perrito que quiere adoptar
-                  </label>
-                  <input
-                    type="text"
-                    name="nombre_mascota"
-                    id="nombre_mascota"
-                  />
-                </div> -->
+                  <label for="vivienda">Vivienda</label>                   
+                    <select name="vivienda" id="vivienda" class="formulario__select">
+                        <option value="casa" selected>Casa</option>
+                        <option value="departamento" default>Departamento</option>
+                    </select>               
+                </div>               
 
                 <div class="formulario__botones">
                   <button type="submit" class="btn__light">Enviar</button>
