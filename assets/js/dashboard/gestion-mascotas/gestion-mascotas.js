@@ -1,7 +1,7 @@
 
 const contenedorPadre = document.querySelector('.contenido-dinamico');
 
-let url = 'http://localhost:3000/perritos'
+const url = 'http://localhost:3000/perritos'
 
 async function solicitarPerritos(url) {
     try {
@@ -10,8 +10,8 @@ async function solicitarPerritos(url) {
             console.log('Error al solicitar los perritos');
             return 
         };
-        const data = await respuesta.json();
-        return data;
+        const datos = await respuesta.json();
+        return datos;
         
     } catch (error) {
         console.error('Error al solicitar los perritos', error);
@@ -19,7 +19,6 @@ async function solicitarPerritos(url) {
 }
 
 function iterarPerritosLista(perritosLista) {
-    console.log(perritosLista)
     perritosLista.map((perrito) => {
         let indicefinal = perrito.fecha_ingreso.indexOf('T');
         let fechaIngreso = perrito.fecha_ingreso.slice(0, indicefinal);
@@ -98,7 +97,7 @@ function iterarPerritosLista(perritosLista) {
         campos[5].textContent = perrito.estado_adopcion;
         campos[6].textContent = fechaIngreso;
 
-        if(perrito.estado_adopcion === 'pendiente') {
+        if(perrito.estado_adopcion === 'en proceso') {
             const btnPostulantes = mascotaContenedor.querySelector('.btn__postulante');
             btnPostulantes.classList.remove('d-none');
         };
@@ -118,7 +117,7 @@ async function renderizarCards(url) {
             return perritosLista; //Retorno el array de perrito que viene de la base de datos para usarlo en el filtrado por nombre
         };
     } catch (error) {
-        console.error('Error al renderizar las cards de perritos:', error);
+        console.error('Error al renderizar las cards: ', error);
     };
 };
 

@@ -50,7 +50,7 @@ async function obtenerPerrito(id) {
 };
 
 async function agregarValores() {
-    perritoActual = await obtenerPerrito(perritoId);
+    const perritoActual = await obtenerPerrito(perritoId);
     console.log(perritoActual)
     if(perritoActual) {
         for(const key in perritoActual) {

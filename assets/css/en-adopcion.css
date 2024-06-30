@@ -155,6 +155,7 @@
 }
 
 .mascota__nombre {
+    text-transform: capitalize;
     font-size: 2.4rem;
     color: var(--primario);
     font-family: var(--fuente-principal);
@@ -163,6 +164,7 @@
 .mascota__contenido p {
     padding-left: 3rem;
     text-align: left;
+    text-transform: capitalize;
 }
 
 .mascota__contenido p::before {
