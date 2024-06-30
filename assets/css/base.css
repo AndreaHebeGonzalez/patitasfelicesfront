@@ -308,6 +308,12 @@ ol {
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
+.btn__light--adoptar {
+  align-self: center;
+  padding: 0.5rem 1rem;
+  width: 8rem;
+}
+
 .btn__text {
   padding: 1rem 2rem;
   border-radius: 10rem;

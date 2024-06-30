@@ -174,11 +174,8 @@
     content: url(../img/perrito.svg);
 }
 
-.mascota__condicion::before {
-    content: url(../img/vacuna.svg);
-}
-
 .mascota__tamaño::before {
     content: url(../img/medidas.svg);
 }
+
 
