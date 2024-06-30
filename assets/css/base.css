@@ -343,6 +343,34 @@ ol {
   min-width: 18.1rem;
 }
 
+.btn__contenedor {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.btn__icono-table {
+  background: transparent;
+  border: transparent;
+  border-radius: 50rem;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn__icono.btn__icono-table:hover,
+.btn__icono.btn__icono-table:focus, 
+.btn__icono.btn__icono-table:active {
+  background-color: var(--bg-body);
+}
+
+.btn__icono.btn__icono-table img {
+  width: 1.7rem;
+}
+
 @media (min-width: 480px) { 
   .btn__secundary {
     padding: 1rem 2rem;

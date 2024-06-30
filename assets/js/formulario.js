@@ -1,6 +1,6 @@
 const form = document.querySelector(".form");
 
-const nombre = document.querySelector("#nombre");
+const nombre = document.querySelector("#nombre_apellido");
 const email = document.querySelector("#email");
 const errorContainer = document.querySelector("#errorContainer"); 
 let errorN = document.querySelector(".errorNombre"); 
