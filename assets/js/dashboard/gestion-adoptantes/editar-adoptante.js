@@ -60,17 +60,17 @@ async function obtenerAdoptante(id) {
 }
 
 async function agregarValores() {
-  adoptanteActual = await obtenerAdoptante(adoptanteId);
+  let adoptanteActual = await obtenerAdoptante(adoptanteId);
   console.log(adoptanteActual);
   if (adoptanteActual) {
     for (const key in adoptanteActual) {
       const input = formulario.querySelector(`[name="${key}"]`);
       if (input) {
-        if (input.tagName != "SELECT" && input.type != "file") {
+        if (input.tagName != "SELECT") {
           input.value =
             adoptanteActual[key].charAt(0).toUpperCase() +
             adoptanteActual[key].slice(1);
-        } else if (input.type != "file") {
+        } else {
           input.value = adoptanteActual[key];
         }
       }
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   formulario.addEventListener("input", (e) => {
     adoptanteActualizado[e.target.name] = e.target.value.trim();
-    console.log(adoptanteActualizado);
+    
   });
 
   formulario.addEventListener("submit", async (e) => {
