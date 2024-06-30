@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/base.css">
     <link rel="stylesheet" href="../../assets/css/estilos-dashboard.css">
+
+    <!-- Ventana Modal -->
+    <link rel="stylesheet" href="../../assets/css/vantana-modal.css">
+
+    <!-- estilos para spinner -->
+    <link rel="stylesheet" href="../../assets/css/spinner.css">
+
     <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
+
     <title>Panel de Administración</title>
 </head>
 <body>
@@ -19,6 +27,19 @@
             </div>
         </div>
     </header>
+
+    <!-- Ventana Modal -->
+
+    <section class="ventana-modal">
+        <div class="ventana-modal__box">
+            <div class="ventana-modal__contenido">
+                <span class="titulo-ventana-modal">Perrito agregado con éxito!</span>
+                <div id="animacion-exito" style="width: 65px; height: 65px;"></div>
+            </div>
+            
+        </div>
+    </section>
+
     <main class="panel">
         <div class="panel__contenedor">
             <img class="barra-lateral__icono-nav" src="../../assets/img/hamburguesa.svg" alt="menu hamburguesa">
@@ -52,7 +73,10 @@
                             </div>
                             <div class="formulario__item">
                                 <label for="genero">Genero</label>
-                                <input type="text" name="genero" id="genero">
+                                <select name="genero" id="genero" class="formulario__select">
+                                    <option value="macho" selected>Macho</option>
+                                    <option value="hembra">Hembra</option>
+                                </select>
                             </div>
                             <div class="formulario__item">
                                 <label for="edad">Edad</label>
@@ -66,10 +90,10 @@
 
                             <div class="formulario__item">
                                 <label for="tamaño">Tamaño</label>
-                                <select name="tamaño" id="tamaño" class="formulario__select">
+                                <select name="tamano" id="tamaño" class="formulario__select">
                                     <option value="pequeño" selected>Pequeño</option>
-                                    <option value="mediano" default>Mediano</option>
-                                    <option value="grande" default>Grande</option>
+                                    <option value="mediano">Mediano</option>
+                                    <option value="grande">Grande</option>
                                 </select>
                             </div>
                             
@@ -77,22 +101,32 @@
                                 <label for="estado-adopcion">Estado de adopcion</label>
                                 <select name="estado_adopcion" id="estado-adopcion" class="formulario__select">
                                     <option value="disponible" selected>Disponible</option>
-                                    <option value="pendiente" default>Pendiente</option>
-                                    <option value="adoptado" default>Adoptado</option>
+                                    <option value="pendiente">Pendiente</option>
+                                    <option value="adoptado">Adoptado</option>
                                 </select>
                             </div>
 
                             <div class="formulario__item">
-                                <label for="imagen">Seleccionar imagen:</label>
-                                <input type="file" id="imagen" name="imagen" accept="image/*">
+                                <label for="url_img">Seleccionar imagen:</label>
+                                <input type="file" id="url_img" name="url_img" accept="image/*">
                             </div>
 
                             <div class="formulario__botones">
-                                <button class="btn__light">Enviar</button>
-                                <button class="btn__light">Resetear</button>
+                                <button type="submit" class="btn__light" id="btn-enviar">Enviar</button>
+                                <button type="reset" class="btn__light" disabled>Resetear</button>
                             </div>
                             
                         </form>
+                        <div id="spinner" class="spinner d-none">
+                            <div class="sk-chase">
+                                <div class="sk-chase-dot"></div>
+                                <div class="sk-chase-dot"></div>
+                                <div class="sk-chase-dot"></div>
+                                <div class="sk-chase-dot"></div>
+                                <div class="sk-chase-dot"></div>
+                                <div class="sk-chase-dot"></div>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
@@ -110,6 +144,9 @@
     </footer>
     
     <script src="../../assets/js/dashboard/menu-panel.js"></script>
-    <script src="../../assets/js/dashboard/gestion-mascotas.js"></script>
+    <script src="../../assets/js/dashboard/gestion-mascotas/agregar-mascota.js"></script>
+    <!-- Iconos animados de exito-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+    <script src="../../assets/js/dashboard/icono-exito.js"></script>
 </body>
 </html>

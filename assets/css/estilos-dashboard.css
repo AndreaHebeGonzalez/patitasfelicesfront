@@ -79,13 +79,14 @@ h3 {
   }
 }
 
-@media (min-width: 1024px) {
-  .panel__contenedor {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    gap: 2rem;
-  }
+@media (min-width: 1024px) { 
+    .panel__contenedor {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 2rem;
+    }
 }
+
 
 /* Barra lateral */
 
@@ -213,8 +214,8 @@ h3 {
 }
 
 .filtro__opcion--entrada {
-  flex-direction: column;
-  gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .filtro__opcion--entrada input {
@@ -257,17 +258,17 @@ h3 {
 /* Estilos card - mascota */
 
 .mascota__card {
-  background-color: var(--blanco);
-  border-radius: 1.2rem;
-  border: 0.1rem dashed var(--primario);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 3rem;
-  min-width: 28rem;
-  width: 80%;
-  flex: 0.8;
+    background-color: var(--blanco);
+    border-radius: 1.2rem;
+    border: 0.1rem dashed var(--primario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 3rem;
+    min-width: 28rem;
+    width: 80%;
+    flex: 0.8;
 }
 
 .card__imagen {
@@ -294,8 +295,8 @@ h3 {
 }
 
 .mascota__valor {
-  color: var(--gris-oscuro);
-  text-transform: capitalize;
+    color: var(--gris-oscuro);
+    text-transform: capitalize;
 }
 
 /* Botones acciones */
@@ -407,6 +408,10 @@ h3 {
   font-family: var(--fuente-secundaria);
 }
 
+.formulario textarea {
+    font-family: var(--fuente-secundaria);
+}
+
 .formulario .btn__primary {
   width: max-content;
   align-self: center;
@@ -428,23 +433,23 @@ h3 {
 /* Mensaje de error */
 
 .error {
-  border: 1px solid var(--border-error);
-  padding: 0.8rem 1rem;
-  font-size: 1.5rem;
-  color: var(--blanco);
-  background-color: var(--error);
-  border-radius: 0.5rem;
+    border: 1px solid var(--border-error);
+    padding: 0.8rem 1rem;
+    font-size: 1.5rem;
+    color: var(--blanco);
+    background-color: var(--error);
+    border-radius: 0.5rem;
 }
 
 .deshabilitar-btn,
 .deshabilitar-btn:hover {
-  border-color: var(--deshabilitar);
-  color: var(--blanco);
-  background-color: var(--deshabilitar);
-  box-shadow: none;
+    border-color: var(--deshabilitar);
+    color: var(--blanco);
+    background-color: var(--deshabilitar);
+    box-shadow: none;
 }
 
-/* Tablas ======================>*/
+/* Tablas ======================>*/ 
 
 .tabla__contenedor {
   border-radius: 1rem;
@@ -482,12 +487,13 @@ h3 {
 
 /* Spinner */
 
+
 .spinner {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
 }
 
 .d-none {
-  display: none; /* El spinner tiene esta clase, cuando inicia el proceso de borrado la saco para que el spinner aparezca */
+    display: none; /* El spinner tiene esta clase, cuando inicia el proceso de borrado la saco para que el spinner aparezca */
 }
