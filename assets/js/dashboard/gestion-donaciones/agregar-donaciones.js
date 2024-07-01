@@ -1,8 +1,8 @@
 const donacion = {
   nombre: "",
   email: "",
-  fecha: "",
-  monto: "",
+  fechaDonacion: "",
+  montoDonacion: "",
 };
 
 //Seleccionar los elemnetos de la interfaz
