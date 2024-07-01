@@ -1,10 +1,10 @@
-// Definicion de variables globales y funciones
+//Definicion de variables globales y funciones
 
 const adoptanteActualizado = {
   nombre_apellido: "",
   telefono: "",
   email: "",
-  dni: "",
+  DNI: "",
   vivienda: "",
 };
 
@@ -12,27 +12,43 @@ const adoptanteActualizado = {
 const urlParams = new URLSearchParams(window.location.search);
 const adoptanteId = urlParams.get("id");
 
-// Obtener formulario
+// Obetener formualario
 const formulario = document.querySelector("#formulario_adoptante");
+const btnSubmit = document.querySelector(
+  '#formulario_adoptante button[type="submit"]'
+);
+const btnReset = document.querySelector(
+  '#formulario_adoptante button[type="reset"]'
+);
 
 /* Ventana modal aparece cuando se borra un adoptante */
+
 function mostrarVentanaModal() {
   const ventanaModal = document.querySelector(".ventana-modal");
-  ventanaModal.classList.add("mostrar-ventana-modal"); /* Muestro ventana modal */
+  ventanaModal.classList.add(
+    "mostrar-ventana-modal"
+  ); /* Muestro ventana modal */
   setTimeout(() => {
-    ventanaModal.classList.remove("mostrar-ventana-modal"); /* Saco ventana modal despues de 4 segundos */
+    ventanaModal.classList.remove(
+      "mostrar-ventana-modal"
+    ); /* Saco ventana modal despues de 4 segundos */
     setTimeout(() => {
       location.reload(); // Recarga la página
     }, 500); // Espera 500ms para asegurarse de que el modal esté completamente cerrado antes de recargar
   }, 3000);
 }
 
-// Solicito la información del adoptante por su id guardada en la base de datos
+//Solicito la informacion del adoptante por su id guardada en la base de datos
+
 async function obtenerAdoptante(id) {
   try {
     const respuesta = await fetch(`http://localhost:3000/adoptantes/${id}`);
+    console.log(respuesta);
     if (!respuesta.ok) {
-      console.log("Error al solicitar adoptante por su id, código de estado: ", respuesta.status);
+      console.log(
+        "Error al solicitar adoptante por su id, codigo de estado: ",
+        respuesta.status
+      );
       return;
     }
     const data = await respuesta.json();
@@ -43,21 +59,26 @@ async function obtenerAdoptante(id) {
 }
 
 async function agregarValores() {
-  const adoptanteActual = await obtenerAdoptante(adoptanteId);
+  let adoptanteActual = await obtenerAdoptante(adoptanteId);
+  console.log(adoptanteActual);
   if (adoptanteActual) {
     for (const key in adoptanteActual) {
       const input = formulario.querySelector(`[name="${key}"]`);
       if (input) {
-        input.value = adoptanteActual[key];
+        if (input.tagName != "SELECT") {
+          input.value =
+            adoptanteActual[key].charAt(0).toUpperCase() +
+            adoptanteActual[key].slice(1);
+        } else {
+          input.value = adoptanteActual[key];
+        }
       }
     }
-    return adoptanteActual;
   }
-  return null;
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const adoptanteActual = await agregarValores();
+document.addEventListener("DOMContentLoaded", () => {
+  agregarValores();
 
   formulario.addEventListener("input", (e) => {
     adoptanteActualizado[e.target.name] = e.target.value.trim();
@@ -66,29 +87,28 @@ document.addEventListener("DOMContentLoaded", async () => {
   formulario.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Combinar adoptanteActual y adoptanteActualizado
-    const adoptanteCombinado = { ...adoptanteActual };
-
-    // Solo agregar campos actualizados que no están vacíos
-    for (const key in adoptanteActualizado) {
-      if (adoptanteActualizado[key]) {
-        adoptanteCombinado[key] = adoptanteActualizado[key];
-      }
-    }
+    console.log(adoptanteActualizado);
 
     try {
-      const respuesta = await fetch(`http://localhost:3000/adoptantes/${adoptanteId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(adoptanteCombinado),
-      });
+      const respuesta = await fetch(
+        `http://localhost:3000/adoptantes/${adoptanteId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(adoptanteActualizado)
+        }
+      );
       if (!respuesta.ok) {
-        console.error("Error al enviar el formulario, código de estado: ", respuesta.status);
+        console.error(
+          "Error al enviar el formulario, código de estado: ",
+          respuesta.status
+        );
         return;
       }
-      // Mostrar spinner
+      /* Agregar spinner */
+      console.log("llegue hasta aca");
       const spinnerActual = document.querySelector(".spinner");
       spinnerActual.classList.remove("d-none");
       setTimeout(() => {
@@ -96,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         mostrarVentanaModal();
       }, 3000);
     } catch (error) {
-      console.error("Error al enviar la información", error);
+      console.error("Error al enviar la informacion", error);
     }
   });
 });

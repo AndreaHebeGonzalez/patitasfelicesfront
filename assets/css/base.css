@@ -249,6 +249,9 @@ ol {
 }
 
 /* BUTTONS ************************/
+button{
+  cursor: pointer;
+}
 
 .btn__primary {
   display: flex;
