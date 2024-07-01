@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //Agrego escuchador de evento input a la etiqueta form, al pasarle el evento e, y usar e.target se va a detectar el input en el cual se esta escribiendo:
   formulario.addEventListener("input", (e) => {
     validar(e);
+    // console.log(validar);
   });
 
   formulario.addEventListener("submit", async (e) => {
@@ -118,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "Error al enviar el formulario, código de estado: ",
           respuesta.status
         );
+
         return;
       }
       /* Agregar spinner */
