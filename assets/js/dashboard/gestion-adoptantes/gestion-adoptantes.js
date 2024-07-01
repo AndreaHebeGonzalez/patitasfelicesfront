@@ -135,4 +135,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
   });
+
+  // Filtrar
+  const porNombre = document.querySelector("#fNombre");
+  const porVivienda = document.querySelector("#fVivienda");
+
+  porNombre.addEventListener("input", (e) => {
+    limpiarRenderizado();
+    const adoptanteFiltrado = adoptantes.filter((adoptante) => {
+      return adoptante.nombre_apellido
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
+    });
+    iterarAdoptantesLista(adoptanteFiltrado);
+  });
+
+  porVivienda.addEventListener("input", () => {
+    if (porVivienda.value != "") {
+      const urlVivienda = `http://localhost:3000/adoptantes/filtrarporvivienda/${porVivienda.value}`;
+      limpiarRenderizado();
+      renderizarAdoptantes(urlVivienda);
+    } else {
+      limpiarRenderizado();
+      renderizarAdoptantes(url);
+    }
+  });
 });
