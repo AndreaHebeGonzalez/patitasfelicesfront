@@ -1,4 +1,4 @@
-//Definicion de variables globales y funciones
+//Definicion de variables globales y funciones:
 
 const perritoActualizado = {
     nombre: '',
@@ -35,9 +35,9 @@ function mostrarVentanaModal() {
 
 //Solicito la informacion del perrito por su id guardada en la base de datos
 
-async function obtenerPerrito(id) {
+async function obtenerPerrito() {
     try {
-        const respuesta = await fetch(`http://localhost:3000/perritos/${id}`);
+        const respuesta = await fetch(`http://localhost:3000/perritos/${perritoId}`);
         if(!respuesta.ok) {
             console.log('Error al solicitar perrito por su id, codigo de estado: ', respuesta.status);
             return;
@@ -50,8 +50,8 @@ async function obtenerPerrito(id) {
 };
 
 async function agregarValores() {
-    const perritoActual = await obtenerPerrito(perritoId);
-    console.log(perritoActual)
+    const perritoActual = await obtenerPerrito();
+    console.log(perritoActual);
     if(perritoActual) {
         for(const key in perritoActual) {
             const input = formulario.querySelector(`[name="${key}"]`);
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         for(const key in perritoActualizado) {
             formData.append(key, perritoActualizado[key]);
-        }
+        };
 
         try {
             const respuesta = await fetch(`http://localhost:3000/perritos/${perritoId}`, {
@@ -110,5 +110,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         console.log(formData);
-    })
+    });
 });
