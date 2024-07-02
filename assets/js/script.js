@@ -8,6 +8,8 @@ const errorContainer = document.querySelector("#errorContainer");
 
 const nombreMascota = document.querySelector('.nombre-mascota');
 
+const enviar = document.querySelector('input[type="submit"]');
+
 let errorValidacion;
 
 const adoptante = {
@@ -135,7 +137,7 @@ async function enviarDatos() {
             if(statusCambioEstado === 201) {
                 enviado.style.display = "block";
                 enviado.textContent = "Hemos recibido tu solicitud de adopción. Nos pondremos en contacto contigo en los próximos días. ¡Gracias por darle a un perrito la oportunidad de tener una familia!";
-            /* Resetaer formulario ahora */
+                enviar.disabled = true;
             }
         }
 };

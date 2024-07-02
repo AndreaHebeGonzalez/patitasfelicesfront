@@ -196,19 +196,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     clickBtn('btn__borrar');
     clickBtn('btn__postulantes');
-    /* contenedorPadre.addEventListener('click', async (e) => {
-        if(e.target.classList.contains('btn__borrar')) {
-            console.log('se hizo clic en el boton borrar');
-            const contenedorMascota = e.target.closest('.mascota'); //Ancestro mas cercano con la clase mascota
-            console.log(contenedorMascota);
-            if(contenedorMascota) {
-                const id_perrito = contenedorMascota.getAttribute('data-id'); 
-                eliminarPerrito(id_perrito, contenedorMascota); 
-            } else {
-                console.log('No se encontró el elemento asociado al botón de borrar.');
-            }
-        };
-    }); */
 
     //filtrados -------> 
     
