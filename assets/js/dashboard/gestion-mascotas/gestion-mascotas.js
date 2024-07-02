@@ -84,7 +84,7 @@ function iterarPerritosLista(perritosLista) {
                             <button class="btn__secundary btn__secundary--dark btn__icono btn__borrar">
                                 <img src="../../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
                             </button>
-                            <button class="btn__secundary btn__secundary--azul d-none btn__postulante">Postulantes</button>
+                            <a class="btn__secundary btn__secundary--azul d-none btn__postulantes">Postulantes</a>
                         </div>`;
         mascotaContenedor.innerHTML = contenidoMascota;
         contenedorPadre.appendChild(mascotaContenedor);
@@ -98,10 +98,11 @@ function iterarPerritosLista(perritosLista) {
         campos[6].textContent = fechaIngreso;
 
         if(perrito.estado_adopcion === 'en proceso') {
-            const btnPostulantes = mascotaContenedor.querySelector('.btn__postulante');
-            btnPostulantes.classList.remove('d-none');
+            const btnPostulantes = mascotaContenedor.querySelector('.btn__postulantes');
+            if(btnPostulantes) {
+                btnPostulantes.classList.remove('d-none');
+            }
         };
-        
         //Agrego la url del formulario al boton editar y paso el id como parámetro en la url
         const btnEditar = mascotaContenedor.querySelector('.btn_editar');
         btnEditar.setAttribute('href', `./editar-mascota.html?id=${perrito.id}`);
@@ -145,7 +146,7 @@ async function eliminarPerrito(id, contenedorMascota) {
             console.error('Error al eliminar la mascota. Codigo de estado: ', respuesta.status);
             return;
         } 
-        console.log(`Mascota con ${id} fue borrada exitosamente`);
+        console.log(`Mascota con id ${id} fue borrada exitosamente`);
         /* Activo spinner */
         const spinnerActual = contenedorMascota.querySelector('.spinner');
         spinnerActual.classList.remove('d-none');
@@ -165,12 +166,37 @@ function limpiarRenderizado() {
     };
 };
 
+
+function clickBtn(btnClase) { //paso clase
+    //Campturo click en boton postulantes 
+    contenedorPadre.addEventListener('click', async (e) => {
+        if(e.target.classList.contains(btnClase)) {
+            console.log('se hizo clic en el boton postulantes');
+            const contenedorMascota = e.target.closest('.mascota'); //Ancestro mas cercano con la clase mascota
+            console.log(contenedorMascota);
+            if(contenedorMascota) {
+                const id = contenedorMascota.getAttribute('data-id'); 
+                if(btnClase == 'btn__postulantes') {
+                    e.target.setAttribute('href', `../gestion-adoptantes/dashboard-postulaciones.html?id=${id}`)
+                } else {
+                    eliminarPerrito(id, contenedorMascota); 
+                }
+            } else {
+                console.log('No se encontró el elemento asociado al botón');
+            }
+        };
+    });
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
     //Guardo en variable let la lista de perritos
     let perritos = await renderizarCards(url);
 
     //Capturo el click en el boton borrar
-    contenedorPadre.addEventListener('click', async (e) => {
+
+    clickBtn('btn__borrar');
+    clickBtn('btn__postulantes');
+    /* contenedorPadre.addEventListener('click', async (e) => {
         if(e.target.classList.contains('btn__borrar')) {
             console.log('se hizo clic en el boton borrar');
             const contenedorMascota = e.target.closest('.mascota'); //Ancestro mas cercano con la clase mascota
@@ -182,7 +208,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.log('No se encontró el elemento asociado al botón de borrar.');
             }
         };
-    });
+    }); */
 
     //filtrados -------> 
     

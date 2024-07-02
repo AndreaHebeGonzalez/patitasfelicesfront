@@ -38,16 +38,20 @@ function iterarPerritosLista(listaPerritos) {
         const mascotaNombre = mascotaContenedor.querySelector('.mascota__nombre');
         const generoEdad = mascotaContenedor.querySelector('.mascota__genero-edad');
         const mascotaTamano = mascotaContenedor.querySelector('.mascota__tamaño');
+        const btnAdoptar = mascotaContenedor.querySelector('.btn__light--adoptar');
 
         mascotaNombre.textContent = perrito.nombre;
         generoEdad.textContent = `${perrito.genero} - ${perrito.edad}`;
         mascotaTamano.textContent = `Tamaño: ${perrito.tamano}`; 
+
+        btnAdoptar.setAttribute('href', `./formulario.html?id=${perrito.id}&nombre=${perrito.nombre}`)
     });
 }
 
 async function renderizarCards() {
     try {
         const listaPerritos = await solicitarPerritos();
+        console.log(listaPerritos)
         if(listaPerritos) {
             iterarPerritosLista(listaPerritos);
         }

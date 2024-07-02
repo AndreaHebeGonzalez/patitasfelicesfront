@@ -6,7 +6,7 @@ const perrito = {
     edad: '',
     condicion_medica: '',
     tamano: 'pequeño',
-    estado_adopcion: 'disponible',
+    estado_adopcion: 'libre',
     url_img: '',
 };
 
@@ -103,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     formulario.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(); /* Lo necesito porque envio un archivo img */
+        console.log(perrito)
+
         for(const key in perrito) {
             formData.append(key, perrito[key]);
         };
