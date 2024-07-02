@@ -47,7 +47,7 @@ function iterarDonacionesLista(donacionesLista) {
     const campos = donacionContenedor.querySelectorAll("td");
     campos[0].textContent = donacion.nombre;
     campos[1].textContent = donacion.email;
-    campos[2].textContent = donacion.fechaDonación;
+    campos[2].textContent = donacion.fechaDonacion;
     campos[3].textContent = donacion.montoDonacion;
   });
 }
