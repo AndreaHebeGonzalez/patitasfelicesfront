@@ -71,46 +71,33 @@
               <h3 class="contenido__titulo">Adoptantes</h3>
               <div class="contenido__filtro">
                 <button class="filtro__btn btn__icono">
-                  <img
-                    src="../../assets/img/iconos/ico-filtrar.svg"
-                    alt="icono de agregar"
-                  />
-                  Filtrar
+                    <img src="../../assets/img/iconos/ico-filtrar.svg" alt="icono de agregar"> Filtrar
                 </button>
-                <ul class="filtro__opciones">
-                  <li class="filtro__opcion filtro__opcion--entrada">
-                    <input type="text" name="opcionFiltro" id="fNombre" />
-                    <label for="fNombre">Por nombre</label>
-                  </li>
-                  <li class="filtro__opcion">
-                    <input
-                      type="radio"
-                      name="opcionFiltro"
-                      id="ftamaño"
-                      value="ftamaño"
-                    />
-                    <label for="ftamaño">Por tamaño</label>
-                  </li>
-                  <li class="filtro__opcion">
-                    <input
-                      type="radio"
-                      name="opcionFiltro"
-                      id="fEstadoAdopcion"
-                      value="fEstadoAdopcion"
-                    />
-                    <label for="fEstadoAdopcion">Por Estado de adopcion</label>
-                  </li>
-                </ul>
-              </div>
+                    <ul class="filtro__opciones">
+                        <li class="filtro__opcion filtro__opcion--entrada">
+                            <label for="fNombre">Por nombre</label> 
+                            <input type="text" name="opcionFiltro" id="fNombre"> 
+                        </li>
+                        
+                        <li class="filtro__opcion filtro__opcion--entrada"">
+                            <label for="fVivienda">Por tipo de vivienda</label>
+                            <select name="fVivienda" id="fVivienda" class="formulario__select">
+                                <option value="" selected>Seleccione</option>
+                                <option value="casa">Casa</option>
+                                <option value="departamento">Departamento</option>
+                            </select>
+                        </li>
+                    </ul>
+            </div>
             </div>
 
-            <button class="btn__secundary btn__secundary--verde btn__icono" onclick="window.location.href='./agregar-adoptante.html'">
+            <!-- <button class="btn__secundary btn__secundary--verde btn__icono" onclick="window.location.href='./agregar-adoptante.html'">
               <img
                 src="../../assets/img/iconos/ico-agregar.svg"
                 alt="icono de agregar"
               />
               Agregar postulante
-            </button>
+            </button> -->
 
             <div class="contenido-dinamico">
               <div class="tabla__contenedor">
@@ -120,7 +107,7 @@
                       <th>Nombre y apellido</th>
                       <th>Teléfono</th>
                       <th>Email</th>
-                      <th>DNI</th>
+                      <th>DNI</th>                    
                       <th>Vivienda</th>
                       <th>Acciones</th>
                     </tr>
@@ -129,6 +116,16 @@
                     
                   </tbody>
                 </table>
+              </div>
+            </div>
+            <div id="spinner" class="spinner d-none">
+              <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
               </div>
             </div>
           </div>
