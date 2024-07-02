@@ -82,7 +82,7 @@ h3 {
 @media (min-width: 1024px) { 
     .panel__contenedor {
         display: grid;
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 5fr;
         gap: 2rem;
     }
 }
@@ -470,7 +470,7 @@ h3 {
 }
 
 .tabla th {
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.2rem;
   font-weight: 700;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -478,7 +478,7 @@ h3 {
 }
 
 .tabla td {
-  padding: 1.5rem;
+  padding: 1.5rem 1.2rem;
 }
 
 .tabla tr:not(:last-child) td {
@@ -486,7 +486,6 @@ h3 {
 }
 
 /* Spinner */
-
 
 .spinner {
     display: flex;
