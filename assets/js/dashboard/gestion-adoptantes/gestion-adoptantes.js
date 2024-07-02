@@ -43,7 +43,6 @@ function iterarAdoptantesLista(adoptantesLista) {
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
                                         <td> 
                                             <div class="btn__contenedor">
                                                 <button class="btn__icono btn__icono-table" onclick="window.location.href='./editar-adoptante.html?id=${adoptante.id}';">
@@ -68,7 +67,6 @@ function iterarAdoptantesLista(adoptantesLista) {
     campos[2].textContent = adoptante.email;
     campos[3].textContent = adoptante.dni;
     campos[4].textContent = adoptante.vivienda;
-    campos[5].textContent = adoptante.ID_perrito;
 
     //Agrego la url del formulario al boton editar y paso el id como parámetro en la url
     // const btnTable = adoptanteContenedor.querySelector(
