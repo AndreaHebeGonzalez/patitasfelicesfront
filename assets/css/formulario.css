@@ -66,6 +66,15 @@
   height: 3rem;
 }
 
+.nombre-mascota {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: var(--fuente-principal);
+  font-size: 3rem;
+  color: var(--primario);
+  font-weight: 700;
+}
+
 .error,
 .enviado {
   padding: 1.5rem 3rem;
