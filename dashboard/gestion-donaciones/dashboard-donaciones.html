@@ -65,7 +65,6 @@
               >
             </div>
           </nav>
-          <!-- <a href="#">Registrar usuario</a> -->
         </div>
         <!-- Contenido -->
         <section class="contenido">
@@ -85,37 +84,41 @@
                     <input
                       type="radio"
                       name="opcionFiltro"
-                      id="ftamaño"
-                      value="ftamaño"
+                      id="monto"
+                      value="monto"
                     />
-                    <label for="ftamaño">Por monto</label>
+                    <label for="monto">Por monto</label>
                   </li>
                   <li class="filtro__opcion">
                     <input
                       type="radio"
                       name="opcionFiltro"
-                      id="fEstadoAdopcion"
-                      value="fEstadoAdopcion"
+                      id="fecha"
+                      value="fecha"
                     />
-                    <label for="fEstadoAdopcion">Por fecha</label>
+                    <label for="fecha">Por fecha</label>
                   </li>
                   <li class="filtro__opcion">
                     <input
                       type="radio"
                       name="opcionFiltro"
-                      id="fEstadoAdopcion"
-                      value="fEstadoAdopcion"
+                      id="nombre"
+                      value="nombre"
                     />
-                    <label for="fEstadoAdopcion">Por nombre (A-Z)</label>
+                    <label for="nombre">Por nombre (A-Z)</label>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <button class="btn__secundary btn__secundary--verde btn__icono">
+            <button
+              class="btn__secundary btn__secundary--verde btn__icono"
+              onclick="window.location.href='./agregar-donacion.html'"
+            >
               <img
                 src="../../assets/img/iconos/ico-agregar.svg"
-                alt="icono de agregar"
+                alt="icono de
+              agregar"
               />
               Agregar donación
             </button>
@@ -134,15 +137,6 @@
                   </thead>
                   <tbody class="contenedor-registros"></tbody>
                 </table>
-                <!-- <div class="mascota__acciones">
-                                <button class="btn__secundary btn__icono">
-                                    <img src="../assets/img/iconos/ico-editar.svg" alt="icono de editar"> Editar
-                                </button>
-                                <button class="btn__secundary btn__secundary--dark btn__icono">
-                                    <img src="../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
-                                </button>
-                                <button class="btn__secundary btn__secundary--azul">Postulantes</button>
-                            </div> -->
               </div>
             </div>
           </div>
