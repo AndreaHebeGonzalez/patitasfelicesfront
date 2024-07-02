@@ -4,15 +4,21 @@ console.log(contenedorPadre);
 
 async function mostrarPerritos() {
     try {
-        const respuesta = await fetch('http://localhost:3000/perritos'); /* Metodo get por defecto */
+        const respuesta = await fetch('http://localhost:3000/perritos', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': document.cookie.split('=')[1]
+            },
+        }); /* Metodo get por defecto */
         if (!respuesta.ok) {
             console.log('Error al solicitar los perritos');
-            return 
+            return
         };
         const data = await respuesta.json();
         console.log(data);
         return data;
-        
+
     } catch (error) {
         console.error('Error al solicitar los perritos', error);
     }
@@ -24,15 +30,15 @@ async function renderizarCard() {
         //! Verificar que perrito contenga algo
         perritosLista.map((perrito) => {
             const urlbase = "http://localhost:3000/";
-            
-            const urlCompleta= `${urlbase}${perrito.img_url}`;
+
+            const urlCompleta = `${urlbase}${perrito.img_url}`;
 
             const mascotaContenedor = document.createElement('div');
             mascotaContenedor.setAttribute('class', 'mascota');
             mascotaContenedor.setAttribute('data-id', `${perrito.id}`); // es común y estandarizado usar atributos personalizados de datos con el prefijo data-, como data-id. 
 
-            const contenidoMascota = 
-                            `<div class="mascota__card">
+            const contenidoMascota =
+                `<div class="mascota__card">
                                 <figure class="card__imagen">
                                     <img src=${urlCompleta} alt="Imagen de mascota">
                                 </figure>
@@ -126,7 +132,7 @@ async function eliminarPerrito(id, contenedorMascota) {
         if (!respuesta.ok) {
             console.error('Error al eliminar la mascota. Codigo de estado: ', respuesta.status);
             return;
-        } 
+        }
         console.log(`Mascota con ${id} fue borrada exitosamente`);
         /* Activo spinner */
         const spinnerActual = contenedorMascota.querySelector('.spinner');
@@ -137,17 +143,17 @@ async function eliminarPerrito(id, contenedorMascota) {
         }, 3000);
     } catch (error) {
         ('Error al eliminar la mascota:', error);
-    };     
+    };
 };
 
 contenedorPadre.addEventListener('click', async (e) => {
-    if(e.target.classList.contains('btn__borrar')) {
+    if (e.target.classList.contains('btn__borrar')) {
         console.log('se hizo clic en el boton borrar');
         const contenedorMascota = e.target.closest('.mascota');
         console.log(contenedorMascota);
-        if(contenedorMascota) {
-            id_perrito = contenedorMascota.getAttribute('data-id'); 
-            eliminarPerrito(id_perrito, contenedorMascota); 
+        if (contenedorMascota) {
+            id_perrito = contenedorMascota.getAttribute('data-id');
+            eliminarPerrito(id_perrito, contenedorMascota);
         } else {
             console.log('No se encontró el elemento asociado al botón de borrar.');
         }
