@@ -5,14 +5,19 @@ const url = 'http://localhost:3000/perritos'
 
 async function solicitarPerritos(url) {
     try {
-        const respuesta = await fetch(url); /* Metodo get por defecto */
+        const respuesta = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': document.cookie.split('=')[1]
+            },
+        }); /* Metodo get por defecto */
         if (!respuesta.ok) {
             console.log('Error al solicitar los perritos');
-            return 
+            return
         };
-        const datos = await respuesta.json();
-        return datos;
-        
+        const data = await respuesta.json();
+        return data;
     } catch (error) {
         console.error('Error al solicitar los perritos', error);
     }
@@ -156,9 +161,8 @@ async function eliminarPerrito(id, contenedorMascota) {
         }, 3000);
     } catch (error) {
         ('Error al eliminar la mascota:', error);
-    };     
+    };
 };
-
 
 function limpiarRenderizado() {
     while(contenedorPadre.firstChild) {
