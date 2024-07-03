@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/vantana-modal.css">
     <link rel="stylesheet" href="../../assets/css/estilos-dashboard.css">
+
+    <!-- Ventana Modal -->
+    <link rel="stylesheet" href="../../assets/css/vantana-modal.css">
 
     <!-- estilos para spinner -->
     <link rel="stylesheet" href="../../assets/css/spinner.css">
@@ -29,10 +31,8 @@
 
     <section class="ventana-modal">
         <div class="ventana-modal__box">
-            <!-- Icono de cierre de ventana modal -->
-            <div class="ventana-modal__cerrar"></div>
             <div class="ventana-modal__contenido">
-                <span class="titulo-ventana-modal">Perrito borrado con éxito!</span>
+                <span class="titulo-ventana-modal">Datos borrados con éxito!</span>
                 <div id="animacion-exito" style="width: 65px; height: 65px;"></div>
             </div>
             
@@ -69,16 +69,27 @@
                             </button>
                                 <ul class="filtro__opciones">
                                     <li class="filtro__opcion filtro__opcion--entrada">
-                                        <input type="text" name="opcionFiltro" id="fNombre">
-                                        <label for="for="fNombre">Por nombre</label>                                        
+                                        <label for="fNombre">Por nombre</label> 
+                                        <input type="text" name="opcionFiltro" id="fNombre"> 
                                     </li>
-                                    <li class="filtro__opcion">
-                                        <input type="radio" name="opcionFiltro" id="ftamaño" value="ftamaño">
+                                    <li class="filtro__opcion filtro__opcion--entrada"">
                                         <label for="ftamaño">Por tamaño</label>
+                                        <select name="ftamaño" id="ftamaño" class="formulario__select">
+                                            <option value="" selected>Seleccione</option>
+                                            <option value="pequeño">Pequeño</option>
+                                            <option value="mediano">Mediano</option>
+                                            <option value="grande">Grande</option>
+                                        </select>
                                     </li>
-                                    <li class="filtro__opcion">
-                                        <input type="radio" name="opcionFiltro" id="fEstadoAdopcion" value="fEstadoAdopcion">
+                                    
+                                    <li class="filtro__opcion filtro__opcion--entrada"">
                                         <label for="fEstadoAdopcion">Por Estado de adopcion</label>
+                                        <select name="fEstadoAdopcion" id="fEstadoAdopcion" class="formulario__select">
+                                            <option value="" selected>Seleccione</option>
+                                            <option value="libre">Libre</option>
+                                            <option value="en proceso">En proceso</option>
+                                            <option value="adoptado">Adoptado</option>
+                                        </select>
                                     </li>
                                 </ul>
                         </div>
@@ -89,63 +100,6 @@
                     </a>
                 
                     <div class="contenido-dinamico">
-                        <div class="mascota" data-id="2">
-                            <div class="mascota__card">
-                                <figure class="card__imagen">
-                                    <img src="../../assets/img/img-mascotas/perrito-1.jpg" alt="Imagen de mascota">
-                                </figure>
-                                <table class="mascota__informacion">
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Nombre:</strong></td>
-                                        <td class="mascota__valor">Firulais</td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Género</strong></td>
-                                        <td class="mascota__valor">Macho</td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Edad:</strong></td>
-                                        <td class="mascota__valor">3 años</td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Condición Médica:</strong></td>
-                                        <td class="mascota__valor">Desparacitado, vacunado, cirugia de cadera. Toma medicacion para el corazon.</td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Tamaño:</strong></td>
-                                        <td class="mascota__valor">Mediano</td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Estado de adopción:</strong></td>
-                                        <td class="mascota__valor">Disponible</td>
-                                    </tr>
-                                    <tr class="mascota__fila">
-                                        <td class="mascota__campo"><strong>Fecha de ingreso:</strong></td>
-                                        <td class="mascota__valor">2024/05/05</td>
-                                    </tr>
-                                </table>
-                                <div id="spinner" class="spinner d-none">
-                                    <div class="sk-chase">
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                        <div class="sk-chase-dot"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mascota__acciones">
-                                <a href="./editar-mascota.html" class="btn__secundary btn__icono">
-                                    <img src="../../assets/img/iconos/ico-editar.svg" alt="icono de editar"> Editar
-                                </a>
-                                <button class="btn__secundary btn__secundary--dark btn__icono btn__borrar">
-                                    <img src="../../assets/img/iconos/ico-borrar.svg" alt="icono de eliminar"> Borrar
-                                </button>
-                                <button class="btn__secundary btn__secundary--azul">Postulantes</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>

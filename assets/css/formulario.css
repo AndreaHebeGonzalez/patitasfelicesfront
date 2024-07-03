@@ -66,6 +66,15 @@
   height: 3rem;
 }
 
+.nombre-mascota {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: var(--fuente-principal);
+  font-size: 3rem;
+  color: var(--primario);
+  font-weight: 700;
+}
+
 .error,
 .enviado {
   padding: 1.5rem 3rem;
@@ -214,6 +223,17 @@ label > input[type="radio"]:checked + *::before {
 label > input[type="radio"] + * {
   display: inline-block;
   padding: 0.5rem 1rem;
+}
+
+.mensaje-error {
+  text-align: center;
+  margin-top: 3rem;
+  border: 1px solid #201712;
+  padding: 0.8rem 1rem;
+  font-size: 1.5rem;
+  color: var(--blanco);
+  background-color: var(--secundario);
+  border-radius: 0.5rem;
 }
 
 /************** MEDIAQUERIES *******/
