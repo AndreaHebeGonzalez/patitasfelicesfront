@@ -153,6 +153,17 @@ async function generarAdopcion(id_perrito, id_adoptante) {
   }
 }
 
+function mostrarVentanaModal() {
+  const ventanaModal = document.querySelector(".ventana-modal");
+  ventanaModal.classList.add('mostrar-ventana-modal'); /* Muestro ventana modal */
+  setTimeout(() => {
+      ventanaModal.classList.remove('mostrar-ventana-modal'); /* Saco ventana modal despues de 4 segundos */
+      setTimeout(() => {
+        window.location.href = `../gestion-adoptantes/dashboard-adopciones.html`;
+      }, 500); 
+  }, 3000);
+};
+
 function clickBtnSeleccionar(id_perrito) {
   contenedorPadre.addEventListener("click", async (e) => {
     if (e.target.classList.contains("btn__seleccionar")) {
@@ -162,15 +173,19 @@ function clickBtnSeleccionar(id_perrito) {
       if (contenedorRegistro) {
         const id_adoptante = contenedorRegistro.getAttribute("data-id");
         generarAdopcion(id_perrito, id_adoptante);
+        /* Agregar spinner */
+        const spinnerActual = document.querySelector('.spinner');
+        spinnerActual.classList.remove('d-none');
         setTimeout(() => {
-          window.location.href = `../gestion-adoptantes/dashboard-adopciones.html`;
-        }, 1500);
+            spinnerActual.classList.add('d-none');
+            mostrarVentanaModal();
+        }, 3000);
       } else {
         console.log("No se encontró el elemento asociado al botón");
-      }
-    }
+      };
+    };
   });
-}
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Pregunto si hay parametros en la url:
