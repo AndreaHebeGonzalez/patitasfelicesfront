@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,9 @@
     <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
 
     <title>Panel de Administración</title>
+    <script src="../../assets/js/dashboard/auth.js"></script>
 </head>
+
 <body>
     <header class="header">
         <div class="header__contenedor">
@@ -36,7 +39,7 @@
                 <span class="titulo-ventana-modal">Datos agregados con éxito!</span>
                 <div id="animacion-exito" style="width: 65px; height: 65px;"></div>
             </div>
-            
+
         </div>
     </section>
 
@@ -50,7 +53,8 @@
                     <div class="menu">
                         <a class="menu__item" href="./gestion-mascotas.html">Mascotas</a>
                         <a class="menu__item" href="../gestion-adoptantes/dashboar-adoptantes.html">Adoptantes</a>
-                        <a class="menu__item" href="../gestion-adoptantes/dashboard-postulaciones.html">Postulaciones</a>
+                        <a class="menu__item"
+                            href="../gestion-adoptantes/dashboard-postulaciones.html">Postulaciones</a>
                         <a class="menu__item" href="../gestion-adoptantes/dashboard-adopciones.html">Adopciones</a>
                         <a class="menu__item" href="../gestion-donaciones/dashboard-donaciones.html">Donaciones</a>
                     </div>
@@ -96,7 +100,7 @@
                                     <option value="grande">Grande</option>
                                 </select>
                             </div>
-                            
+
                             <div class="formulario__item">
                                 <label for="estado-adopcion">Estado de adopcion</label>
                                 <select name="estado_adopcion" id="estado-adopcion" class="formulario__select">
@@ -115,7 +119,7 @@
                                 <button type="submit" class="btn__light" id="btn-enviar">Enviar</button>
                                 <button type="reset" class="btn__light" disabled>Resetear</button>
                             </div>
-                            
+
                         </form>
                         <div id="spinner" class="spinner d-none">
                             <div class="sk-chase">
@@ -128,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </section>
         </div>
@@ -142,11 +146,12 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="../../assets/js/dashboard/menu-panel.js"></script>
     <script src="../../assets/js/dashboard/gestion-mascotas/agregar-mascota.js"></script>
     <!-- Iconos animados de exito-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
     <script src="../../assets/js/dashboard/icono-exito.js"></script>
 </body>
+
 </html>

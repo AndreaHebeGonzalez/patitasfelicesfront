@@ -1,170 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../assets/css/base.css" />
-    <link rel="stylesheet" href="../../assets/css/estilos-dashboard.css" />
-    <!-- Ventana Modal -->
-    <link rel="stylesheet" href="../../assets/css/vantana-modal.css" />
 
-    <!-- estilos para spinner -->
-    <link rel="stylesheet" href="../../assets/css/spinner.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../assets/css/base.css" />
+  <link rel="stylesheet" href="../../assets/css/estilos-dashboard.css" />
+  <!-- Ventana Modal -->
+  <link rel="stylesheet" href="../../assets/css/vantana-modal.css" />
 
-    <link
-      rel="shortcut icon"
-      href="../../assets/img/favicon.ico"
-      type="image/x-icon"
-    />
+  <!-- estilos para spinner -->
+  <link rel="stylesheet" href="../../assets/css/spinner.css" />
 
-    <title>Panel de Administración</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__contenedor">
-        <div class="header__contenido">
-          <h2>Dashboard</h2>
-          <button class="btn__primary btn__primary--dark btn__icono">
-            <img
-              src="../../assets/img/iconos/ico-cerrar.svg"
-              alt="icono de cerrar sesion"
-            />
-            Cerrar sesión
-          </button>
-        </div>
+  <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon" />
+
+  <title>Panel de Administración</title>
+  <script src="../../assets/js/dashboard/auth.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__contenedor">
+      <div class="header__contenido">
+        <h2>Dashboard</h2>
+        <button class="btn__primary btn__primary--dark btn__icono">
+          <img src="../../assets/img/iconos/ico-cerrar.svg" alt="icono de cerrar sesion" />
+          Cerrar sesión
+        </button>
       </div>
-    </header>
+    </div>
+  </header>
 
 
-    <!-- Ventana Modal -->
-    <section class="ventana-modal">
-      <div class="ventana-modal__box">
-          <div class="ventana-modal__contenido">
-              <span class="titulo-ventana-modal">Felicidades registraste una nueva adopcion!</span>
-              <div id="animacion-exito" style="width: 65px; height: 65px;"></div>
-          </div>
-          
+  <!-- Ventana Modal -->
+  <section class="ventana-modal">
+    <div class="ventana-modal__box">
+      <div class="ventana-modal__contenido">
+        <span class="titulo-ventana-modal">Felicidades registraste una nueva adopcion!</span>
+        <div id="animacion-exito" style="width: 65px; height: 65px;"></div>
       </div>
-    </section>
 
-    <main class="panel">
-      <div class="panel__contenedor">
-        <img
-          class="barra-lateral__icono-nav"
-          src="../../assets/img/hamburguesa.svg"
-          alt="menu hamburguesa"
-        />
-        <!-- Barra lateral -->
-        <div class="barra-lateral">
-          <h3 class="barra-lateral__titulo">Administración</h3>
-          <!-- Rol -->
-          <nav class="barra-lateral__menu">
-            <div class="menu">
-              <a
-                class="menu__item activo"
-                href="../gestion-mascotas/gestion-mascotas.html"
-                >Mascotas</a
-              >
-              <a class="menu__item" href="./dashboar-adoptantes.html"
-                >Adoptantes</a
-              >
-              <a class="menu__item" href="./dashboard-postulaciones.html"
-                >Postulaciones</a
-              >
-              <a class="menu__item" href="./dashboard-adopciones.html"
-                >Adopciones</a
-              >
-              <a
-                class="menu__item"
-                href="../gestion-donaciones/dashboard-donaciones.html"
-                >Donaciones</a
-              >
-            </div>
-          </nav>
-          <!-- <a href="#">Registrar usuario</a> -->
-        </div>
+    </div>
+  </section>
 
-        <!-- Contenido -->
-        <section class="contenido">
-          <div id="spinner" class="spinner spinner--centrado d-none">
-            <div class="sk-chase">
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-            </div>
+  <main class="panel">
+    <div class="panel__contenedor">
+      <img class="barra-lateral__icono-nav" src="../../assets/img/hamburguesa.svg" alt="menu hamburguesa" />
+      <!-- Barra lateral -->
+      <div class="barra-lateral">
+        <h3 class="barra-lateral__titulo">Administración</h3>
+        <!-- Rol -->
+        <nav class="barra-lateral__menu">
+          <div class="menu">
+            <a class="menu__item activo" href="../gestion-mascotas/gestion-mascotas.html">Mascotas</a>
+            <a class="menu__item" href="./dashboar-adoptantes.html">Adoptantes</a>
+            <a class="menu__item" href="./dashboard-postulaciones.html">Postulaciones</a>
+            <a class="menu__item" href="./dashboard-adopciones.html">Adopciones</a>
+            <a class="menu__item" href="../gestion-donaciones/dashboard-donaciones.html">Donaciones</a>
           </div>
-          <div class="contenido__contenedor">
-            <div class="contenido__header">
-              <h3 class="contenido__titulo">Postulaciones de adopcion</h3>
-              <div class="contenido__filtro">
-                <button class="filtro__btn btn__icono">
-                  <img
-                    src="../../assets/img/iconos/ico-filtrar.svg"
-                    alt="icono de filtrar"
-                  />
-                  Filtrar
-                </button>
-                <ul class="filtro__opciones">
-                  <li class="filtro__opcion filtro__opcion--entrada">
-                      <label for="fNombreAdoptante">Por adoptante</label> 
-                      <input type="text" name="opcionFiltro" id="fNombreAdoptante"> 
-                  </li>
-                  <li class="filtro__opcion filtro__opcion--entrada">
-                      <label for="fNombrePerrito">Por perrito</label> 
-                      <input type="text" name="fNombrePerrito" id="fNombrePerrito"> 
-                  </li>
-                  
-                  <li class="filtro__opcion filtro__opcion--entrada"">
-                      <label for="fEstadoAdopcion">Mas recientes</label>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="contenido-dinamico">
-              <div class="tabla__contenedor">
-                <table class="tabla">
-                  <thead>
-                    <tr>
-                        <th>Nombre y apellido</th>
-                        <th>Teléfono</th>
-                        <th>Email</th>
-                        <th>Vivienda</th>
-                        <th>Nombre perrito</th>
-                        <th>ID perrito</th>
-                        <th class="d-none acciones">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody class="postulantes">
-                    
-                  </tbody>
-                </table>
-              </div>
+        </nav>
+        <!-- <a href="#">Registrar usuario</a> -->
+      </div>
+
+      <!-- Contenido -->
+      <section class="contenido">
+        <div id="spinner" class="spinner spinner--centrado d-none">
+          <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
+        </div>
+        <div class="contenido__contenedor">
+          <div class="contenido__header">
+            <h3 class="contenido__titulo">Postulaciones de adopcion</h3>
+            <div class="contenido__filtro">
+              <button class="filtro__btn btn__icono">
+                <img src="../../assets/img/iconos/ico-filtrar.svg" alt="icono de filtrar" />
+                Filtrar
+              </button>
+              <ul class="filtro__opciones">
+                <li class="filtro__opcion filtro__opcion--entrada">
+                  <label for="fNombreAdoptante">Por adoptante</label>
+                  <input type="text" name="opcionFiltro" id="fNombreAdoptante">
+                </li>
+                <li class="filtro__opcion filtro__opcion--entrada">
+                  <label for="fNombrePerrito">Por perrito</label>
+                  <input type="text" name="fNombrePerrito" id="fNombrePerrito">
+                </li>
+
+                <li class="filtro__opcion filtro__opcion--entrada"">
+                      <label for=" fEstadoAdopcion">Mas recientes</label>
+                </li>
+              </ul>
             </div>
           </div>
-        </section>
-      </div>
-    </main>
-    <footer class="footer">
-      <div class="footer__barra">
-        <div class="footer__flex footer__flex--center">
-          <a href="../../index.html" class="footer__logo">
-            <img
-              src="../../assets/img/logo-footer.svg"
-              alt="Logo Patitas Felices"
-            />
-          </a>
-        </div>
-      </div>
-    </footer>
+          <div class="contenido-dinamico">
+            <div class="tabla__contenedor">
+              <table class="tabla">
+                <thead>
+                  <tr>
+                    <th>Nombre y apellido</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Vivienda</th>
+                    <th>Nombre perrito</th>
+                    <th>ID perrito</th>
+                    <th class="d-none acciones">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody class="postulantes">
 
-    <script src="../../assets/js/dashboard/menu-panel.js"></script>
-    <script src="../../assets/js/dashboard/menu-filtrar.js"></script>
-    <script src="../../assets/js/dashboard/gestion-adoptantes/mostrar-postulaciones.js"></script>
-    <!-- Iconos animados de exito-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
-    <script src="../../assets/js/dashboard/icono-exito.js"></script>
-  </body>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__barra">
+      <div class="footer__flex footer__flex--center">
+        <a href="../../index.html" class="footer__logo">
+          <img src="../../assets/img/logo-footer.svg" alt="Logo Patitas Felices" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/dashboard/menu-panel.js"></script>
+  <script src="../../assets/js/dashboard/menu-filtrar.js"></script>
+  <script src="../../assets/js/dashboard/gestion-adoptantes/mostrar-postulaciones.js"></script>
+  <!-- Iconos animados de exito-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+  <script src="../../assets/js/dashboard/icono-exito.js"></script>
+</body>
+
 </html>

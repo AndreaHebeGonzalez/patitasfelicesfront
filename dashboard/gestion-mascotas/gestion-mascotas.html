@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,9 @@
 
     <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
     <title>Panel de Administración</title>
+    <script src="../../assets/js/dashboard/auth.js"></script>
 </head>
+
 <body>
     <header class="header">
         <div class="header__contenedor">
@@ -35,7 +38,7 @@
                 <span class="titulo-ventana-modal">Datos borrados con éxito!</span>
                 <div id="animacion-exito" style="width: 65px; height: 65px;"></div>
             </div>
-            
+
         </div>
     </section>
 
@@ -50,7 +53,8 @@
                     <div class="menu">
                         <a class="menu__item" href="./gestion-mascotas.html">Mascotas</a>
                         <a class="menu__item" href="../gestion-adoptantes/dashboar-adoptantes.html">Adoptantes</a>
-                        <a class="menu__item" href="../gestion-adoptantes/dashboard-postulaciones.html">Postulaciones</a>
+                        <a class="menu__item"
+                            href="../gestion-adoptantes/dashboard-postulaciones.html">Postulaciones</a>
                         <a class="menu__item" href="../gestion-adoptantes/dashboard-adopciones.html">Adopciones</a>
                         <a class="menu__item" href="../gestion-donaciones/dashboard-donaciones.html">Donaciones</a>
                     </div>
@@ -67,38 +71,38 @@
                             <button class="filtro__btn btn__icono">
                                 <img src="../../assets/img/iconos/ico-filtrar.svg" alt="icono de agregar"> Filtrar
                             </button>
-                                <ul class="filtro__opciones">
-                                    <li class="filtro__opcion filtro__opcion--entrada">
-                                        <label for="fNombre">Por nombre</label> 
-                                        <input type="text" name="opcionFiltro" id="fNombre"> 
-                                    </li>
-                                    <li class="filtro__opcion filtro__opcion--entrada"">
-                                        <label for="ftamaño">Por tamaño</label>
-                                        <select name="ftamaño" id="ftamaño" class="formulario__select">
-                                            <option value="" selected>Seleccione</option>
-                                            <option value="pequeño">Pequeño</option>
-                                            <option value="mediano">Mediano</option>
-                                            <option value="grande">Grande</option>
-                                        </select>
-                                    </li>
-                                    
-                                    <li class="filtro__opcion filtro__opcion--entrada"">
-                                        <label for="fEstadoAdopcion">Por Estado de adopcion</label>
-                                        <select name="fEstadoAdopcion" id="fEstadoAdopcion" class="formulario__select">
-                                            <option value="" selected>Seleccione</option>
-                                            <option value="libre">Libre</option>
-                                            <option value="en proceso">En proceso</option>
-                                            <option value="adoptado">Adoptado</option>
-                                        </select>
-                                    </li>
-                                </ul>
+                            <ul class="filtro__opciones">
+                                <li class="filtro__opcion filtro__opcion--entrada">
+                                    <label for="fNombre">Por nombre</label>
+                                    <input type="text" name="opcionFiltro" id="fNombre">
+                                </li>
+                                <li class="filtro__opcion filtro__opcion--entrada"">
+                                        <label for=" ftamaño">Por tamaño</label>
+                                    <select name="ftamaño" id="ftamaño" class="formulario__select">
+                                        <option value="" selected>Seleccione</option>
+                                        <option value="pequeño">Pequeño</option>
+                                        <option value="mediano">Mediano</option>
+                                        <option value="grande">Grande</option>
+                                    </select>
+                                </li>
+
+                                <li class="filtro__opcion filtro__opcion--entrada"">
+                                        <label for=" fEstadoAdopcion">Por Estado de adopcion</label>
+                                    <select name="fEstadoAdopcion" id="fEstadoAdopcion" class="formulario__select">
+                                        <option value="" selected>Seleccione</option>
+                                        <option value="libre">Libre</option>
+                                        <option value="en proceso">En proceso</option>
+                                        <option value="adoptado">Adoptado</option>
+                                    </select>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
                     <a href="./agregar-mascota.html" class="btn__secundary btn__secundary--verde btn__icono">
                         <img src="../../assets/img/iconos/ico-agregar.svg" alt="icono de agregar"> Agregar perrito
                     </a>
-                
+
                     <div class="contenido-dinamico">
                     </div>
                 </div>
@@ -114,7 +118,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="../../assets/js/dashboard/menu-panel.js"></script>
     <script src="../../assets/js/dashboard/menu-filtrar.js"></script>
     <script src="../../assets/js/dashboard/gestion-mascotas/gestion-mascotas.js"></script>
@@ -123,4 +127,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
     <script src="../../assets/js/dashboard/icono-exito.js"></script>
 </body>
+
 </html>

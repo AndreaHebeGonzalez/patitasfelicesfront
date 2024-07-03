@@ -17,6 +17,7 @@ function login() {
             }
             else {
                 document.cookie = "token3=" + data.token;
+                window.location.href = "./gestion-mascotas/gestion-mascotas.html";
             }
         }
         )
