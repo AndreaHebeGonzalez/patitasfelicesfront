@@ -89,11 +89,16 @@ async function soliEnvioDatos() {
             body: JSON.stringify(adoptante)
         });
     
-        if (!respuesta.ok) {
+        if (!respuesta.ok && respuesta.status != 400) {
             console.error(
                 "Error al enviar el formulario, código de estado: ",
                 respuesta.status
             );
+            return;
+        };
+        if(respuesta.status === 400) {
+            console.log('Error 400 recibido desde el servidor');
+            generarMensajeError();
             return;
         };
         const status =  respuesta.status;
@@ -101,8 +106,8 @@ async function soliEnvioDatos() {
     } catch (error) {
         console.error("Error al enviar la informacion", error);
     }
-    
 }
+
 
 async function cambiarEstadoPerrito() {
     try {
@@ -130,18 +135,30 @@ async function cambiarEstadoPerrito() {
 
 async function enviarDatos() {
     const status = await soliEnvioDatos();
-        console.log('status envio de informacion', status)
-        if(status === 201) {
-            const statusCambioEstado  = await cambiarEstadoPerrito();
-            console.log('status cambio de estado', statusCambioEstado);
-            if(statusCambioEstado === 201) {
-                enviado.style.display = "block";
-                enviado.textContent = "Hemos recibido tu solicitud de adopción. Nos pondremos en contacto contigo en los próximos días. ¡Gracias por darle a un perrito la oportunidad de tener una familia!";
-                enviar.disabled = true;
-            }
-        }
+    console.log('status envio de informacion', status)
+    if(status === 201) {
+        const statusCambioEstado  = await cambiarEstadoPerrito();
+        console.log('status cambio de estado', statusCambioEstado);
+        if(statusCambioEstado === 201) {
+            enviado.style.display = "block";
+            enviado.textContent = "Hemos recibido tu solicitud de adopción. Nos pondremos en contacto contigo en los próximos días. ¡Gracias por darle a un perrito la oportunidad de tener una familia!";
+            enviar.disabled = true;
+        };
+    };
 };
 
+function generarMensajeError() {
+    console.log('se ejecuto la generacion de mensaje')
+    const contenedorPadre = document.querySelector('.section__form');
+    const error = document.createElement('P');
+    error.setAttribute('class', 'mensaje-error');
+    error.textContent = 'Tu solicitud para este perrito ya ha sido registrada!';
+    contenedorPadre.appendChild(error);
+    enviar.disabled = true;
+    setTimeout(() => {
+        location.reload();
+    }, 3000);
+};
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
