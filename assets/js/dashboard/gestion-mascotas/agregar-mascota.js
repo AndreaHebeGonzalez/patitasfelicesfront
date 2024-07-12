@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formulario.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const token = localStorage.getItem('token');
         const formData = new FormData(); /* Lo necesito porque envio un archivo img */
         console.log(perrito)
 
@@ -110,8 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const respuesta = await fetch('http://localhost:3000/perritos', {
+            const respuesta = await fetch('https://andreagzlez.alwaysdata.net/perritos', {
                 method: 'POST',
+                headers: {
+                    'authorization': `Bearer ${token}`,
+                },
                 body: formData
             });
             if(!respuesta.ok) {

@@ -1,11 +1,18 @@
 
+
 const contenedorPadre = document.querySelector('.contenido-dinamico');
 
-const url = 'http://localhost:3000/perritos'
+const url = 'https://andreagzlez.alwaysdata.net/perritos'
 
 async function solicitarPerritos(url) {
+    const token = localStorage.getItem('token');
     try {
-        const respuesta = await fetch(url); /* Metodo get por defecto */
+        const respuesta = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }); 
         if (!respuesta.ok) {
             console.log('Error al solicitar los perritos');
             return 
@@ -23,7 +30,7 @@ function iterarPerritosLista(perritosLista) {
         let indicefinal = perrito.fecha_ingreso.indexOf('T');
         let fechaIngreso = perrito.fecha_ingreso.slice(0, indicefinal);
 
-        const urlbase = "http://localhost:3000/";
+        const urlbase = "https://andreagzlez.alwaysdata.net/";
         const urlCompleta= `${urlbase}${perrito.url_img}`;
 
         const mascotaContenedor = document.createElement('div');
@@ -138,9 +145,13 @@ function mostrarVentanaModal() {
 /* Consulta para eliminar perrito */
 
 async function eliminarPerrito(id, contenedorMascota) {
+    const token = localStorage.getItem('token');
     try {
-        const respuesta = await fetch(`http://localhost:3000/perritos/${id}`, {
+        const respuesta = await fetch(`https://andreagzlez.alwaysdata.net/perritos/${id}`, {
             method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
         });
         if (!respuesta.ok) {
             console.error('Error al eliminar la mascota. Codigo de estado: ', respuesta.status);
@@ -169,7 +180,7 @@ function limpiarRenderizado() {
 
 function clickBtn(btnClase) { //paso clase
     //Campturo click en boton postulantes 
-    contenedorPadre.addEventListener('click', async (e) => {
+    contenedorPadre.addEventListener('click', (e) => {
         if(e.target.classList.contains(btnClase)) {
             console.log('se hizo clic en el boton postulantes');
             const contenedorMascota = e.target.closest('.mascota'); //Ancestro mas cercano con la clase mascota
@@ -183,7 +194,7 @@ function clickBtn(btnClase) { //paso clase
                 }
             } else {
                 console.log('No se encontró el elemento asociado al botón');
-            }
+            };
         };
     });
 };
@@ -213,12 +224,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     porTamaño.addEventListener('input', () => {
         if(porTamaño.value === 'pequeño') {
-            const urlFTamaño = 'http://localhost:3000/perritos/filtrarportamano/pequeno';
+            const urlFTamaño = 'https://andreagzlez.alwaysdata.net/perritos/filtrarportamano/pequeno';
             limpiarRenderizado();
             renderizarCards(urlFTamaño);
             
         }else if(porTamaño.value === 'mediano' || porTamaño.value === 'grande')  {
-            const urlFTamaño = `http://localhost:3000/perritos/filtrarportamano/${porTamaño.value}`;
+            const urlFTamaño = `https://andreagzlez.alwaysdata.net/perritos/filtrarportamano/${porTamaño.value}`;
             limpiarRenderizado();
             renderizarCards(urlFTamaño);
         }else {
@@ -229,7 +240,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     porEstadoAdopcion.addEventListener('input', () => {
         if(porEstadoAdopcion.value != '') {
-            const urlEstadoAdopcion = `http://localhost:3000/perritos/filtrarporestado/${porEstadoAdopcion.value}`;
+            const urlEstadoAdopcion = `https://andreagzlez.alwaysdata.net/perritos/filtrarporestado/${porEstadoAdopcion.value}`;
             limpiarRenderizado();
             renderizarCards(urlEstadoAdopcion);
         } else {

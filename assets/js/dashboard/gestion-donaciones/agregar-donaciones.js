@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const respuesta = await fetch("http://localhost:3000/donaciones", {
+      const respuesta = await fetch("https://andreagzlez.alwaysdata.net/donaciones", {
         method: "POST",
         body: formData,
       });

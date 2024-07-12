@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/estilos-dashboard.css">
-    
+    <link rel="stylesheet" href="../assets/css/estilos-dashboard.css">   
     <title>Registro en Dashboard</title>
 </head>
 <body>
 
     <!-- Agregar boton para ir a patitas felices -->
     <main class="seccion-formulario">
-        <div class="seccion-formulario__contenedor">         
+        <div class="seccion-formulario__contenedor registro">         
             <h2 class="seccion-formulario__heading">Registro</h2>
-            <form class="formulario" id="login-form" action="" method="">
+            <form class="formulario" id="register-form" action="" method="">
                 <!-- <div class="cont-error">
                     <small data-error="error-login">Email o contraseña incorrecto. Por favor vuelva a intentarlo.</small>
                 </div> -->
                 <div class="formulario__item">
                     <label for="email">Nombre</label>
-                    <input type="text" name="text" id="nombre">
+                    <input type="text" name="nombre" id="nombre">
+
                 </div>
                 <div class="formulario__item">
                     <label for="email">Apellido</label>
-                    <input type="text" name="text" id="apellido">
+                    <input type="text" name="apellido" id="apellido">
                 </div>
                 <div class="formulario__item">
                     <label for="email">Email</label>
@@ -40,14 +40,20 @@
                 </div>
                 <div class="formulario__item">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password">
+                    <input type="text" name="password" id="password">
+                </div>
+
+                <div class="formulario__item">
+                    <label for="r-password">Repite contraseña</label>
+                    <input type="text" name="rPassword" id="r-password">
                 </div>
             
                 
-                <button class="btn__light">Registrarse</button>
+                <button type="submit" class="btn__light">Registrarse</button>
                 
             </form>
         </div>  
     </main>
+    <script src="../assets/js/dashboard/gestion-usuarios/register.js"></script>
 </body>
 </html>

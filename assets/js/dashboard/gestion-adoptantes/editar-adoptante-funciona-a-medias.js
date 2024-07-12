@@ -42,7 +42,7 @@ function mostrarVentanaModal() {
 
 async function obtenerAdoptante(id) {
   try {
-    const respuesta = await fetch(`http://localhost:3000/adoptantes/${id}`);
+    const respuesta = await fetch(`https://andreagzlez.alwaysdata.net/adoptantes/${id}`);
     console.log(respuesta);
     if (!respuesta.ok) {
       console.log(
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const respuesta = await fetch(
-        `http://localhost:3000/adoptantes/${adoptanteId}`,
+        `https://andreagzlez.alwaysdata.net/adoptantes/${adoptanteId}`,
         {
           method: "PUT",
           headers: {

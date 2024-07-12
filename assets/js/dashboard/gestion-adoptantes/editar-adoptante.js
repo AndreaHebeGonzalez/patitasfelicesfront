@@ -30,7 +30,7 @@ function mostrarVentanaModal() {
 // Solicito la información del adoptante por su id guardada en la base de datos
 async function obtenerAdoptante(id) {
   try {
-    const respuesta = await fetch(`http://localhost:3000/adoptantes/${id}`);
+    const respuesta = await fetch(`https://andreagzlez.alwaysdata.net/adoptantes/${id}`);
     if (!respuesta.ok) {
       console.log("Error al solicitar adoptante por su id, código de estado: ", respuesta.status);
       return;

@@ -1,6 +1,6 @@
 const contenedorPadre = document.querySelector(".adopciones");
 
-let url = "http://localhost:3000/relaciones/adopciones";
+let url = "https://andreagzlez.alwaysdata.net/relaciones/adopciones";
 
 async function solicitarAdopciones(url) {
   try {

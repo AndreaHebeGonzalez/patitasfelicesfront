@@ -2,7 +2,7 @@ const contenedorPadre = document.querySelector(".postulantes");
 
 //Como parametro viene el id del perrito
 const urlParametros = new URLSearchParams(window.location.search);
-let url = "http://localhost:3000/relaciones/postulaciones";
+let url = "https://andreagzlez.alwaysdata.net/relaciones/postulaciones";
 
 async function solicitarPostulaciones(url) {
   try {
@@ -77,7 +77,7 @@ function iterarPostulantesLista(postulantesLista) {
 async function agregarAdopcion(id_perrito, id_adoptante) {
   try {
     const respuesta = await fetch(
-      "http://localhost:3000/relaciones/adopciones",
+      "https://andreagzlez.alwaysdata.net/relaciones/adopciones",
       {
         method: "POST",
         headers: {
@@ -100,7 +100,7 @@ async function agregarAdopcion(id_perrito, id_adoptante) {
 async function borrarPostulaciones(id_perrito) {
   try {
     const respuesta = await fetch(
-      `http://localhost:3000/relaciones/postulaciones/${id_perrito}`,
+      `https://andreagzlez.alwaysdata.net/relaciones/postulaciones/${id_perrito}`,
       {
         method: "DELETE",
       }
@@ -121,7 +121,7 @@ async function borrarPostulaciones(id_perrito) {
 async function cambiarEstadoPerrito(id_perrito) {
   try {
     const respuesta = await fetch(
-      `http://localhost:3000/perritos/cambiarestado/${id_perrito}`,
+      `https://andreagzlez.alwaysdata.net/perritos/cambiarestado/${id_perrito}`,
       {
         method: "PUT",
         headers: {
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const id = urlParametros.get("id");
     const acciones = document.querySelector(".acciones");
     acciones.classList.remove("d-none");
-    const urlPostulantesPerrito = `http://localhost:3000/relaciones/perritos/${id}/adoptantes`;
+    const urlPostulantesPerrito = `https://andreagzlez.alwaysdata.net/relaciones/perritos/${id}/adoptantes`;
     renderizarPostulaciones(urlPostulantesPerrito);
     clickBtnSeleccionar(id);
     console.log(id);

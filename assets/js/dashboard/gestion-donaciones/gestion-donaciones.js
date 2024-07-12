@@ -1,5 +1,5 @@
 const contenedorPadre = document.querySelector(".contenedor-registros");
-const url = "http://localhost:3000/donaciones";
+const url = "https://andreagzlez.alwaysdata.net/donaciones";
 
 async function solicitarDonaciones(url) {
   try {
